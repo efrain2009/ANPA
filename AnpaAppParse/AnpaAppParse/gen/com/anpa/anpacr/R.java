@@ -961,21 +961,22 @@ containing a value of this type.
         public static final int progress_horizontal_anpa_theme=0x7f02009f;
         public static final int progress_primary_anpa_theme=0x7f0200a0;
         public static final int progress_secondary_anpa_theme=0x7f0200a1;
-        public static final int selectable_background_anpa_theme=0x7f0200a2;
-        public static final int spinner_ab_default_anpa_theme=0x7f0200a3;
-        public static final int spinner_ab_disabled_anpa_theme=0x7f0200a4;
-        public static final int spinner_ab_focused_anpa_theme=0x7f0200a5;
-        public static final int spinner_ab_pressed_anpa_theme=0x7f0200a6;
-        public static final int spinner_background_ab_anpa_theme=0x7f0200a7;
-        public static final int splash_screen=0x7f0200a8;
-        public static final int tab_indicator_ab_anpa_theme=0x7f0200a9;
-        public static final int tab_selected_anpa_theme=0x7f0200aa;
-        public static final int tab_selected_focused_anpa_theme=0x7f0200ab;
-        public static final int tab_selected_pressed_anpa_theme=0x7f0200ac;
-        public static final int tab_unselected_anpa_theme=0x7f0200ad;
-        public static final int tab_unselected_focused_anpa_theme=0x7f0200ae;
-        public static final int tab_unselected_pressed_anpa_theme=0x7f0200af;
-        public static final int tips_button_effect=0x7f0200b0;
+        public static final int prueba=0x7f0200a2;
+        public static final int selectable_background_anpa_theme=0x7f0200a3;
+        public static final int spinner_ab_default_anpa_theme=0x7f0200a4;
+        public static final int spinner_ab_disabled_anpa_theme=0x7f0200a5;
+        public static final int spinner_ab_focused_anpa_theme=0x7f0200a6;
+        public static final int spinner_ab_pressed_anpa_theme=0x7f0200a7;
+        public static final int spinner_background_ab_anpa_theme=0x7f0200a8;
+        public static final int splash_screen=0x7f0200a9;
+        public static final int tab_indicator_ab_anpa_theme=0x7f0200aa;
+        public static final int tab_selected_anpa_theme=0x7f0200ab;
+        public static final int tab_selected_focused_anpa_theme=0x7f0200ac;
+        public static final int tab_selected_pressed_anpa_theme=0x7f0200ad;
+        public static final int tab_unselected_anpa_theme=0x7f0200ae;
+        public static final int tab_unselected_focused_anpa_theme=0x7f0200af;
+        public static final int tab_unselected_pressed_anpa_theme=0x7f0200b0;
+        public static final int tips_button_effect=0x7f0200b1;
     }
     public static final class id {
         public static final int abs__action_bar=0x7f040020;
