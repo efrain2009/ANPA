@@ -32,7 +32,7 @@ public class HomeActivity extends SherlockActivity {
 		
 		//Adoption
 		ImageButton btn_adoption = (ImageButton) findViewById(R.id.btn_home_adoption);
-		btn_adoption.setOnClickListener(onAdoptionClick);
+		btn_adoption.setOnClickListener(onLostClick);
 		
 		//Donation
 		ImageButton btn_donation = (ImageButton) findViewById(R.id.btn_home_donation);
@@ -85,18 +85,18 @@ public class HomeActivity extends SherlockActivity {
 		startActivity(new Intent(this, TipsActivity.class));
 	}
 	
-	private OnClickListener onAdoptionClick = new OnClickListener() {
+	private OnClickListener onLostClick = new OnClickListener() {
 		@Override
 		public void onClick(View v) {
 			// TODO Auto-generated method stub
 			//Como hacer mensaje System.out
 			//Toast.makeText(getApplicationContext(), "Hola", Toast.LENGTH_LONG).show();
-			startAdoptionActivity();
+			startLostctivity();
 		}
 	};
 	
-	private void startAdoptionActivity(){
-		startActivity(new Intent(this, AdoptionActivity.class));
+	private void startLostctivity(){
+		startActivity(new Intent(this, LostActivity.class));
 	}
 	
 	private OnClickListener onDonationClick = new OnClickListener() {

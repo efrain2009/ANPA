@@ -1,9 +1,7 @@
 package com.anpa.anpacr.activities;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
@@ -18,14 +16,11 @@ import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.ActionBar.Tab;
 import com.anpa.anpacr.R;
 import com.anpa.anpacr.common.Constants;
-import com.anpa.anpacr.domain.Castration;
 import com.anpa.anpacr.domain.FreqAnswer;
 import com.anpa.anpacr.fragments.FreqAnswerCastrationFragment;
-import com.anpa.anpacr.fragments.FreqAnswerFragment;
 import com.anpa.anpacr.fragments.LastCastrationFragment;
 import com.anpa.anpacr.fragments.SuggestionCastrationFragment;
 import com.parse.ParseException;
-import com.parse.ParseFile;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 

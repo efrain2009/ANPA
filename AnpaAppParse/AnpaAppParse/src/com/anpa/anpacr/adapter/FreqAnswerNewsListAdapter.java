@@ -11,7 +11,6 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.anpa.anpacr.R;
-import com.anpa.anpacr.domain.FreqAnswer;
 import com.anpa.anpacr.domain.GenericListItem;
 
 public class FreqAnswerNewsListAdapter extends BaseAdapter{

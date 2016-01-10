@@ -252,7 +252,7 @@ public class CastrationActivity extends AnpaAppFraqmentActivity implements
 				ParseQuery<ParseObject> query = ParseQuery
 						.getQuery("ANPA05_FAQ");
 				query.addAscendingOrder("ANPA05_ORDEN");
-				query.whereEqualTo("ANPA05_TIPO", 1);
+				query.whereEqualTo("ANPA05_TIPO", 0);
 				query.selectKeys(Arrays.asList("ANPA05_PREGUNTA",
 						"ANPA05_ORDEN", "ANPA05_RESPUESTA", "ANPA05_TIPO"));// selecciona
 																			// las

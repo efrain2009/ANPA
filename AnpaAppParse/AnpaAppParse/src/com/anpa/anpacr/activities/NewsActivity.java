@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
-import java.util.concurrent.ExecutionException;
 
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
@@ -21,7 +20,6 @@ import com.anpa.anpacr.domain.FreqAnswer;
 import com.anpa.anpacr.domain.News;
 import com.anpa.anpacr.domain.Sponsor;
 import com.anpa.anpacr.fragments.FreqAnswerFragment;
-import com.anpa.anpacr.fragments.LastCastrationFragment;
 import com.anpa.anpacr.fragments.LastNewsFragment;
 import com.anpa.anpacr.fragments.SponsorFragment;
 import com.parse.ParseException;

@@ -351,7 +351,7 @@ int id abs__submit_area 0x7f04002f
 int id abs__textButton 0x7f040013
 int id abs__title 0x7f04001b
 int id abs__up 0x7f04000b
-int id action_settings 0x7f040093
+int id action_settings 0x7f040094
 int id btn_add_tip 0x7f040038
 int id btn_home_adoption 0x7f040070
 int id btn_home_castration 0x7f04006a
@@ -369,7 +369,7 @@ int id editxt_description_tip 0x7f040033
 int id et_donation 0x7f040067
 int id fr_last_news 0x7f040089
 int id homeAsUp 0x7f040006
-int id imageView1 0x7f040092
+int id imageView1 0x7f040093
 int id img_detail_castration 0x7f040047
 int id img_detail_lost 0x7f040059
 int id img_detail_news 0x7f04005d
@@ -389,11 +389,12 @@ int id listMode 0x7f040002
 int id list_castrations 0x7f04008a
 int id list_freqAnswerCastration 0x7f040087
 int id list_freqAnswerNews 0x7f040088
-int id list_lastCastrations 0x7f040090
-int id list_news 0x7f04008c
-int id list_sponsor 0x7f04008d
-int id list_suggestionCastration 0x7f04008f
-int id list_tips 0x7f04008e
+int id list_lastCastrations 0x7f040091
+int id list_lost 0x7f04008c
+int id list_news 0x7f04008d
+int id list_sponsor 0x7f04008e
+int id list_suggestionCastration 0x7f040090
+int id list_tips 0x7f04008f
 int id normal 0x7f040001
 int id showCustom 0x7f040008
 int id showHome 0x7f040005
@@ -401,7 +402,7 @@ int id showTitle 0x7f040007
 int id tabMode 0x7f040003
 int id tv_breed_author 0x7f040034
 int id tv_description_donation 0x7f040064
-int id tv_group_name 0x7f040091
+int id tv_group_name 0x7f040092
 int id tv_home_adoption 0x7f040071
 int id tv_home_castration 0x7f04006b
 int id tv_home_contactus 0x7f040075

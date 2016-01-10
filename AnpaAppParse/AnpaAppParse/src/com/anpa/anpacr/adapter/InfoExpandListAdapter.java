@@ -1,24 +1,19 @@
 package com.anpa.anpacr.adapter;
 
-import java.math.BigDecimal;
-import java.util.ArrayList;
+
 import java.util.List;
 
 import com.anpa.anpacr.R;
 import com.anpa.anpacr.domain.GenericListItem;
 
-import android.app.Activity;
-import android.app.AlertDialog;
+
 import android.content.Context;
-import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.ExpandableListView;
-import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 /**
  * Adapter para la lista expandible donde se muestran las categorías de gastos,

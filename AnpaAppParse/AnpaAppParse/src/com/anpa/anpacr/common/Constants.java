@@ -20,7 +20,7 @@ public class Constants {
 	public static final String TITLE_FREQ_ANSWER = "Preguntas frecuentes";
 	public static final String TITLE_SPONSOR = "Agradecimientos";
 	public final static String ID_OBJ_DETAIL_NEWS = "news_objects";
-	public final static String ID_OBJ_DETAIL_LoST = "lost_objects";
+	public final static String ID_OBJ_DETAIL_LOST = "lost_objects";
 	
 	/*Tips Activity*/
 	public final static String ID_OBJ_DETAIL_TIP = "tip_objects";
@@ -40,6 +40,7 @@ public class Constants {
 	public final static String TITLE_DESCRIPTION_LOST = "Perdidos";
 	public static final String TITLE_LAST_LOST = "Ultimamente";
 	public static final String TITLE_LOST = "Perdidos";
+	public final static String ID_OBJ_DETAIL_LIST = "lost_objects";
 	
 	
 	

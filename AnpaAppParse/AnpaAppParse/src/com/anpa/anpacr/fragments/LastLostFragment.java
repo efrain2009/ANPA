@@ -13,16 +13,15 @@ import android.widget.ListView;
 
 import com.actionbarsherlock.app.SherlockFragment;
 import com.anpa.anpacr.R;
-import com.anpa.anpacr.activities.DetailNewsActivity;
+import com.anpa.anpacr.activities.DetailLostActivity;
 import com.anpa.anpacr.adapter.LostListAdapter;
 import com.anpa.anpacr.common.Constants;
 import com.anpa.anpacr.domain.Lost;
-import com.anpa.anpacr.domain.News;
 
 public class LastLostFragment extends SherlockFragment{
 	
 	private LostListAdapter lostAdapter;
-	private ListView lv_news;
+	private ListView lv_lost;
 	
 	OnLoadListListener onLoadListListener; //Interface para recibir la lista desde el activity.
 
@@ -36,7 +35,7 @@ public class LastLostFragment extends SherlockFragment{
 	 */
 	@Override
 	public View onCreateView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-		View view = inflater.inflate(R.layout.fragment_list_news, container, false);
+		View view = inflater.inflate(R.layout.fragment_list_lost, container, false);
 		/**
 		 * Se instancia el interface
 		 */
@@ -47,26 +46,26 @@ public class LastLostFragment extends SherlockFragment{
                     + " must implement OnLoadListListener");
         }
 		
-		lv_news = (ListView) view.findViewById(R.id.list_news);
+		lv_lost = (ListView) view.findViewById(R.id.list_lost);
 		
 		//Carga los datos obtenidos del activity, llamando al interface del activity
 		 List<Lost> lostList = onLoadListListener.loadList();
 		
 		lostAdapter = new LostListAdapter(getActivity(), lostList);
-		lv_news.setAdapter(lostAdapter);
-		lv_news.setOnItemClickListener(onclickListNews);
+		lv_lost.setAdapter(lostAdapter);
+		lv_lost.setOnItemClickListener(onclickListLost);
 
 		return view;
 	}
 	
-	private OnItemClickListener onclickListNews = new OnItemClickListener() {
+	private OnItemClickListener onclickListLost = new OnItemClickListener() {
 		@Override
 		public void onItemClick(AdapterView<?> parent, View view, int position,
 				long id) {
-			News news = (News) lostAdapter.getItem(position);
+			Lost lost = (Lost) lostAdapter.getItem(position);
 						
-			Intent intent = new Intent(getActivity(), DetailNewsActivity.class);
-			intent.putExtra(Constants.ID_OBJ_DETAIL_NEWS, news);
+			Intent intent = new Intent(getActivity(), DetailLostActivity.class);
+			intent.putExtra(Constants.ID_OBJ_DETAIL_LOST, lost);
 			startActivity(intent);
 		}
 	};	

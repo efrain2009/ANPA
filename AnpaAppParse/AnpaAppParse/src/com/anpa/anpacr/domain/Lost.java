@@ -18,12 +18,30 @@ public class Lost implements Serializable{
 	private Integer _icanton;
 	private String _slatitud;
 	private String _slongitud;
-	private Integer _iespecie;
+	private String _sraza;
 	private String _sDate;
-	private byte[] _bImagen;
+	private byte[] _bFoto;
 
 	public Lost() {
 		super();
+	}
+
+	public Lost(String sIdLost, String sNomMascota, String sNomDueno,
+			String sTelefono, int iProvincia, int iCanton,
+			String sDetalle, String sRaza, String sDate, byte[] bFoto, String sLatitud, String sLongitud) {
+		// TODO Auto-generated constructor stub
+		this._lId = sIdLost;
+		this._snombreMascota = sNomMascota;
+		this._snombreDueno = sNomDueno;
+		this._stelefono = sTelefono;
+		this._sdetalle = sDetalle;
+		this._iprovinvia = iProvincia;
+		this._icanton = iCanton;
+		this._sraza = sRaza;
+		this._sDate = sDate;
+		this._bFoto = bFoto;
+		this._slatitud = sLatitud;
+		this._slongitud = sLongitud;
 	}
 
 	public String get_lId() {
@@ -98,14 +116,6 @@ public class Lost implements Serializable{
 		this._slongitud = _slongitud;
 	}
 
-	public Integer get_iespecie() {
-		return _iespecie;
-	}
-
-	public void set_iespecie(Integer _iespecie) {
-		this._iespecie = _iespecie;
-	}
-
 	public String get_sDate() {
 		return _sDate;
 	}
@@ -114,13 +124,19 @@ public class Lost implements Serializable{
 		this._sDate = _sDate;
 	}
 
-	public byte[] get_bImagen() {
-		return _bImagen;
+	public byte[] get_bFoto() {
+		return _bFoto;
 	}
 
-	public void set_bImagen(byte[] _bImagen) {
-		this._bImagen = _bImagen;
+	public void set_bFoto(byte[] _bFoto) {
+		this._bFoto = _bFoto;
 	}
-	
-	
+
+	public String get_sraza() {
+		return _sraza;
+	}
+
+	public void set_sraza(String _sraza) {
+		this._sraza = _sraza;
+	}
 }

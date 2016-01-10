@@ -9,35 +9,35 @@ import android.widget.TextView;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.anpa.anpacr.R;
 import com.anpa.anpacr.common.Constants;
-import com.anpa.anpacr.domain.News;
+import com.anpa.anpacr.domain.Lost;
 
 public class DetailLostActivity extends SherlockFragmentActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_detail_news);
+		setContentView(R.layout.activity_detail_lost);
 		
 		//Btn de back (anterior)
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-		getSupportActionBar().setTitle(Constants.TITLE_DESCRIPTION_NEWS);
+		getSupportActionBar().setTitle(Constants.TITLE_DESCRIPTION_LOST);
 		
 		Bundle extras = getIntent().getExtras();
 		if (extras != null) {
-			News value = (News) extras.get(Constants.ID_OBJ_DETAIL_NEWS);
+			Lost value = (Lost) extras.get(Constants.ID_OBJ_DETAIL_LOST);
 
-			TextView txt_detail_news_title = (TextView) findViewById(R.id.txt_detail_news_title);
-			txt_detail_news_title.setText(value.get_stitle());
+			TextView txt_detail_lost_title = (TextView) findViewById(R.id.txt_detail_lost_title);
+			txt_detail_lost_title.setText(value.get_snombreMascota());
 
-			TextView txt_detail_news_description = (TextView) findViewById(R.id.txt_detail_news_description);
-			txt_detail_news_description.setText(value.get_sdescription());
+			TextView txt_detail_lost_description = (TextView) findViewById(R.id.txt_detail_lost_description);
+			txt_detail_lost_description.setText(value.get_sdetalle());
 
-			TextView txt_detail_news_date = (TextView) findViewById(R.id.txt_detail_news_date);
-			txt_detail_news_date.setText(value.get_sDate());
+			TextView txt_detail_lost_date = (TextView) findViewById(R.id.txt_detail_lost_date);
+			txt_detail_lost_date.setText(value.get_sDate());
 
-			ImageView img_detail_news = (ImageView) findViewById(R.id.img_detail_news);
+			ImageView img_detail_lost = (ImageView) findViewById(R.id.img_detail_lost);
 			Bitmap bmpImage = BitmapFactory.decodeByteArray(
-				      value.get_bImagen(), 0, value.get_bImagen().length);
-			img_detail_news.setImageBitmap(bmpImage);
+				      value.get_bFoto(), 0, value.get_bFoto().length);
+			img_detail_lost.setImageBitmap(bmpImage);
 		}
 	}
 

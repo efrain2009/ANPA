@@ -1018,7 +1018,7 @@ containing a value of this type.
         public static final int abs__textButton=0x7f040013;
         public static final int abs__title=0x7f04001b;
         public static final int abs__up=0x7f04000b;
-        public static final int action_settings=0x7f040093;
+        public static final int action_settings=0x7f040094;
         public static final int btn_add_tip=0x7f040038;
         public static final int btn_home_adoption=0x7f040070;
         public static final int btn_home_castration=0x7f04006a;
@@ -1036,7 +1036,7 @@ containing a value of this type.
         public static final int et_donation=0x7f040067;
         public static final int fr_last_news=0x7f040089;
         public static final int homeAsUp=0x7f040006;
-        public static final int imageView1=0x7f040092;
+        public static final int imageView1=0x7f040093;
         public static final int img_detail_castration=0x7f040047;
         public static final int img_detail_lost=0x7f040059;
         public static final int img_detail_news=0x7f04005d;
@@ -1056,11 +1056,12 @@ containing a value of this type.
         public static final int list_castrations=0x7f04008a;
         public static final int list_freqAnswerCastration=0x7f040087;
         public static final int list_freqAnswerNews=0x7f040088;
-        public static final int list_lastCastrations=0x7f040090;
-        public static final int list_news=0x7f04008c;
-        public static final int list_sponsor=0x7f04008d;
-        public static final int list_suggestionCastration=0x7f04008f;
-        public static final int list_tips=0x7f04008e;
+        public static final int list_lastCastrations=0x7f040091;
+        public static final int list_lost=0x7f04008c;
+        public static final int list_news=0x7f04008d;
+        public static final int list_sponsor=0x7f04008e;
+        public static final int list_suggestionCastration=0x7f040090;
+        public static final int list_tips=0x7f04008f;
         public static final int normal=0x7f040001;
         public static final int showCustom=0x7f040008;
         public static final int showHome=0x7f040005;
@@ -1068,7 +1069,7 @@ containing a value of this type.
         public static final int tabMode=0x7f040003;
         public static final int tv_breed_author=0x7f040034;
         public static final int tv_description_donation=0x7f040064;
-        public static final int tv_group_name=0x7f040091;
+        public static final int tv_group_name=0x7f040092;
         public static final int tv_home_adoption=0x7f040071;
         public static final int tv_home_castration=0x7f04006b;
         public static final int tv_home_contactus=0x7f040075;

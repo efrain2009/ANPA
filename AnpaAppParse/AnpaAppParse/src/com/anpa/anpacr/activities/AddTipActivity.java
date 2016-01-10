@@ -3,7 +3,6 @@ package com.anpa.anpacr.activities;
 import java.util.Date;
 
 import android.os.Bundle;
-import android.widget.CheckBox;
 import android.widget.EditText;
 
 import com.anpa.anpacr.R;

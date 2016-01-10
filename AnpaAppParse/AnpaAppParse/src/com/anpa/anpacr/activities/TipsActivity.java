@@ -16,7 +16,6 @@ import com.actionbarsherlock.app.ActionBar.Tab;
 import com.anpa.anpacr.R;
 import com.anpa.anpacr.common.Constants;
 import com.anpa.anpacr.domain.Tip;
-import com.anpa.anpacr.fragments.LastCastrationFragment;
 import com.anpa.anpacr.fragments.LastTipsFragment;
 import com.parse.ParseException;
 import com.parse.ParseObject;
