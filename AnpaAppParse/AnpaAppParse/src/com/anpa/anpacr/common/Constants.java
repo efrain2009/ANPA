@@ -42,8 +42,19 @@ public class Constants {
 	public static final String TITLE_LOST = "Perdidos";
 	public final static String ID_OBJ_DETAIL_LIST = "lost_objects";
 	
+	public static final String ANPA_PHONE_PRIM = "+50640002672";
+	public static final String ANPA_PHONE_SEC = "+50622252722";
 	
+	public static final String ANPA_EMAIL_PRIM = "info@anpacostaRica.org";
+	public static final String ANPA_EMAIL_SEC = "educa@anpacostaRica.org";
 	
+	public static final String ANPA_EMAIL_SUBJECT = "Consulta vía ANPA App";
+	
+	public static final String ANPA_FACEBOOK_LINK = "fb://page/101774234247";
+	public static final String ANPA_FACEBOOK_LINK_BACKUP = "https://m.facebook.com/pages/ANPA-Costa-Rica/101774234247";
+	
+	public static final String ANPA_TWITTER_LINK = "twitter://user?user_id=88675906";
+	public static final String ANPA_TWITTER_LINK_BACKUP = "https://mobile.twitter.com/ANPACR";
 }
 
 

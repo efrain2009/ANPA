@@ -23,21 +23,24 @@
         <item name="android:actionBarItemBackground">@drawable/selectable_background_anpa_theme</item>
         <item name="android:popupMenuStyle">@style/PopupMenu.Anpa_theme</item>
         <item name="android:dropDownListViewStyle">@style/DropDownListView.Anpa_theme</item>
-        <item name="android:actionBarTabStyle">@style/ActionBarTabStyle.Anpa_theme</item>
+<!--         <item name="android:actionBarTabStyle">@style/ActionBarTabStyle.Anpa_theme</item> -->
         <item name="android:actionDropDownStyle">@style/DropDownNav.Anpa_theme</item>
         <item name="android:actionBarStyle">@style/ActionBar.Solid.Anpa_theme</item>
         <item name="android:actionModeBackground">@drawable/cab_background_top_anpa_theme</item>
         <item name="android:actionModeSplitBackground">@drawable/cab_background_bottom_anpa_theme</item>
-        <item name="android:actionModeCloseButtonStyle">@style/ActionButton.CloseMode.Anpa_theme</item>
+<!--         <item name="android:actionModeCloseButtonStyle">@style/ActionButton.CloseMode.Anpa_theme</item> -->
+        <!-- Temas nuevos -->
+        <item name="android:actionBarTabStyle">@style/Theme.Anpa_theme.ActionBar.TabView</item>
+        <item name="android:actionBarTabBarStyle">@style/Theme.Anpa_theme.ActionBar.TabBar</item>
+        <item name="android:buttonStyle">@style/Theme.Anpa_theme.Buttons</item>
         
                 <!-- Light.DarkActionBar specific -->
         <item name="android:actionBarWidgetTheme">@style/Theme.Anpa_theme.Widget</item>
-
     </style>
 
     <style name="ActionBar.Solid.Anpa_theme" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
-        <item name="android:background">@drawable/ab_solid_anpa_theme</item>
-        <item name="android:backgroundStacked">@drawable/ab_stacked_solid_anpa_theme</item>
+        <item name="android:background">@color/action_bar_background</item>
+        <item name="android:backgroundStacked">@color/action_bar_background</item>
         <item name="android:backgroundSplit">@drawable/ab_bottom_solid_anpa_theme</item>
         <item name="android:progressBarStyle">@style/ProgressBar.Anpa_theme</item>
     </style>
@@ -69,9 +72,9 @@
         <item name="android:progressDrawable">@drawable/progress_horizontal_anpa_theme</item>
     </style>
     
-    <style name="ActionButton.CloseMode.Anpa_theme" parent="@android:style/Widget.Holo.ActionButton.CloseMode">
-        <item name="android:background">@drawable/btn_cab_done_anpa_theme</item>
-    </style>
+<!--     <style name="ActionButton.CloseMode.Anpa_theme" parent="@android:style/Widget.Holo.ActionButton.CloseMode"> -->
+<!--         <item name="android:background">@drawable/btn_cab_done_anpa_theme</item> -->
+<!--     </style> -->
 
     <!-- this style is only referenced in a Light.DarkActionBar based theme -->
     <style name="Theme.Anpa_theme.Widget" parent="@android:style/Theme.Holo">
@@ -79,4 +82,20 @@
         <item name="android:dropDownListViewStyle">@style/DropDownListView.Anpa_theme</item>
     </style>
 
+    <!-- Estilos nuevos Efra 2016 -->
+    <!-- Tabs -->
+    <style name="Theme.Anpa_theme.ActionBar.TabView" parent="android:style/Widget.Holo.ActionBar.TabView">
+    	<item name="android:background">@drawable/selector_tab_style</item>
+	</style>
+	
+    <!-- Tabs background -->
+    <style name="Theme.Anpa_theme.ActionBar.TabBar" parent="android:style/Widget.Holo.Light.ActionBar.TabBar">
+    <item name="android:background">@color/tabs_spaces_background</item>
+	</style>
+	
+    <!-- Botones -->
+    <style name="Theme.Anpa_theme.Buttons" parent="@android:style/Widget.Button">
+    <item name="android:background">@drawable/selector_button_style</item>
+    <item name="android:textColor">@android:color/white</item> <!-- Here is specified text color -->
+</style>
 </resources>

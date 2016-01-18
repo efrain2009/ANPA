@@ -13,7 +13,6 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.anpa.anpacr.R;
 import com.anpa.anpacr.common.Constants;
 import com.paypal.android.sdk.payments.PayPalAuthorization;
@@ -24,7 +23,7 @@ import com.paypal.android.sdk.payments.PayPalService;
 import com.paypal.android.sdk.payments.PaymentActivity;
 import com.paypal.android.sdk.payments.PaymentConfirmation;
 
-public class DonationActivity extends SherlockFragmentActivity {
+public class DonationActivity extends AnpaAppFraqmentActivity {
 
 	private static final String TAG = "paymentExample";
 	/**

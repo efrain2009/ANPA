@@ -17,7 +17,7 @@
         android:layout_alignBottom="@+id/img_news"
         android:layout_alignTop="@+id/img_news"
         android:layout_alignParentRight="true"
-        android:layout_marginLeft="15dp"
+        android:layout_marginLeft="5dp"
         android:layout_toRightOf="@+id/img_news"
         android:orientation="vertical"
         android:gravity="center_vertical">
@@ -27,13 +27,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="bold"
-            android:textSize="16sp"
-            android:layout_margin="5dp"/>
+            android:textSize="14sp"
+            android:padding="5dp"
+            android:textColor="@android:color/black"/>
 
         <TextView
             android:id="@+id/txt_descrip_news"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp" />
+            android:paddingBottom="5dp"
+            android:textColor="@android:color/black" />
     </LinearLayout>    
 </RelativeLayout>
