@@ -10,7 +10,7 @@
     <color name="action_bar_background">#F22613</color>
     <color name="tabs_background">#F22613</color>
     <color name="tabs_indicator">#FFFFFF</color>
-    <color name="tabs_spaces_background">#FFFFFF</color>
+    <color name="tabs_spaces_background">#F1A9A0</color>
     <color name="hiperlink">#49BCE7</color>
     <color name="button_unpressed">#F22613</color>
     <color name="button_pressed">#1F3A93</color>

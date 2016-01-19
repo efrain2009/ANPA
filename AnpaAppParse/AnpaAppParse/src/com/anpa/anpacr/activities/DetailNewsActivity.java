@@ -11,7 +11,7 @@ import com.anpa.anpacr.R;
 import com.anpa.anpacr.common.Constants;
 import com.anpa.anpacr.domain.News;
 
-public class DetailNewsActivity extends SherlockFragmentActivity {
+public class DetailNewsActivity extends AnpaAppFraqmentActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

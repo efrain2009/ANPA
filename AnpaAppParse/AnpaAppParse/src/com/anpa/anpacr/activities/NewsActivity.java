@@ -32,9 +32,9 @@ FreqAnswerFragment.OnLoadListListenerFreqAnswerNews,
 SponsorFragment.OnLoadSponsorListListener,
 LastNewsFragment.OnLoadListListener{
 	
-	List<News> newsList;
-	List<FreqAnswer> freqAnswerList;
-	List<Sponsor> sponsorList;
+	private List<News> newsList;
+	private List<FreqAnswer> freqAnswerList;
+	private List<Sponsor> sponsorList;
 	
 	public static final String TAG_NEWS = "noticias";
 	
@@ -66,11 +66,11 @@ LastNewsFragment.OnLoadListListener{
 		
 		//Se carga la lista de noticias
 		try {
-			new LoadNewsParse().execute(""); //El ".get" Hace esperar hasta que el hilo termine.
+			new LoadNewsParse().execute("").get(); //El ".get" Hace esperar hasta que el hilo termine.
 			
-			new LoadFreqAnswerNewsParse().execute(""); 
+			new LoadFreqAnswerNewsParse().execute("").get(); 
 			
-			new LoadSponsorParse().execute("");
+			new LoadSponsorParse().execute("").get();
 					
 		} catch (Exception e) {
 			showMessage("Ups! Perdimos el rastro de las noticias. Intenta más tarde.");
@@ -179,7 +179,7 @@ LastNewsFragment.OnLoadListListener{
 			@Override
 			protected void onPreExecute() {
 				progressDialog = ProgressDialog.show(NewsActivity.this,
-						"Espera un momento", "Olfateando Noticias....");
+						"Espera un momento", "Rastreando preguntas frecuentes....");
 			}
 			
 
@@ -237,7 +237,7 @@ LastNewsFragment.OnLoadListListener{
 			@Override
 			protected void onPreExecute() {
 				progressDialog = ProgressDialog.show(NewsActivity.this,
-						"Espera un momento", "Olfateando Noticias....");
+						"Espera un momento", "Lamiendo Patrocinadores....");
 			}
 			
 
