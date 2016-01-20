@@ -82,7 +82,7 @@ public class HomeActivity extends SherlockActivity {
 	};
 	
 	private void startTipsActivity(){
-		startActivity(new Intent(this, TipsActivity.class));
+		startActivity(new Intent(this, TipSearchActivity.class));
 	}
 	
 	private OnClickListener onLostClick = new OnClickListener() {

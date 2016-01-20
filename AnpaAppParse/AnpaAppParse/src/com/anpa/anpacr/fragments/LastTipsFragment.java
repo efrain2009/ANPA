@@ -18,7 +18,6 @@ import com.anpa.anpacr.activities.DetailTipActivity;
 import com.anpa.anpacr.adapter.TipListAdapter;
 import com.anpa.anpacr.common.Constants;
 import com.anpa.anpacr.domain.Tip;
-import com.anpa.anpacr.fragments.LastTipsFragment;
 
 public class LastTipsFragment extends SherlockFragment{
 	

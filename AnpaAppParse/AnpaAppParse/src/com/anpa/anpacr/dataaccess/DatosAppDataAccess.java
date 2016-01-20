@@ -4,13 +4,13 @@ import java.text.Format;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import com.anpa.anpacr.AnpacrApplication;
-import com.anpa.anpacr.database.DatabaseHelper;
-import com.anpa.anpacr.database.TablaDatosApp;
-
 import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.database.Cursor;
+
+import com.anpa.anpacr.AnpacrApplication;
+import com.anpa.anpacr.database.DatabaseHelper;
+import com.anpa.anpacr.database.TablaDatosApp;
 
 public class DatosAppDataAccess extends AbstractDataAccess {
 	private String _sConsultaFechaActualizacion = "SELECT "	+ TablaDatosApp.COL_FECHA_ULT_ACT + " FROM "

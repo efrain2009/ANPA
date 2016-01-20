@@ -1,8 +1,5 @@
 package com.anpa.anpacr.implementor;
 
-import java.util.List;
-
-import com.anpa.anpacr.dataaccess.AnpaDataAccess;
 
 public class AnpaImplementor {
 //private ParqueoDataAccess _dataAccess;

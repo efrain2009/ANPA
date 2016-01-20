@@ -1,16 +1,5 @@
 package com.anpa.anpacr.dataaccess;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import com.anpa.anpacr.AnpacrApplication;
-import com.anpa.anpacr.database.DatabaseHelper;
-import com.anpa.anpacr.database.TablaParqueo;
-
-
-import android.content.ContentValues;
-import android.database.Cursor;
-import android.location.Location;
 
 
 public class AnpaDataAccess extends AbstractDataAccess {

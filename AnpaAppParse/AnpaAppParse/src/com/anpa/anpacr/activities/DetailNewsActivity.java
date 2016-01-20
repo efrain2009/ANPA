@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.anpa.anpacr.R;
 import com.anpa.anpacr.common.Constants;
 import com.anpa.anpacr.domain.News;

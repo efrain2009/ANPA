@@ -1,6 +1,7 @@
 package com.anpa.anpacr.adapter;
 
 import java.util.List;
+
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;

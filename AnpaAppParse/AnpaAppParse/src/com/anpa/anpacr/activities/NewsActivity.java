@@ -66,11 +66,11 @@ LastNewsFragment.OnLoadListListener{
 		
 		//Se carga la lista de noticias
 		try {
-			new LoadNewsParse().execute("").get(); //El ".get" Hace esperar hasta que el hilo termine.
+			new LoadNewsParse().execute(""); //El ".get" Hace esperar hasta que el hilo termine.
 			
-			new LoadFreqAnswerNewsParse().execute("").get(); 
+			new LoadFreqAnswerNewsParse().execute(""); 
 			
-			new LoadSponsorParse().execute("").get();
+			new LoadSponsorParse().execute("");
 					
 		} catch (Exception e) {
 			showMessage("Ups! Perdimos el rastro de las noticias. Intenta más tarde.");

@@ -9,8 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ExpandableListView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ExpandableListView;
 
 import com.actionbarsherlock.app.SherlockFragment;
 import com.anpa.anpacr.R;

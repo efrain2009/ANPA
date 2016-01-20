@@ -1,9 +1,9 @@
 package com.anpa.anpacr.database;
 
-import com.anpa.anpacr.common.Constants;
-
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
+
+import com.anpa.anpacr.common.Constants;
 
 /**
  * Estructura de la tabla "DatosApp", donde se guarda info relacionada

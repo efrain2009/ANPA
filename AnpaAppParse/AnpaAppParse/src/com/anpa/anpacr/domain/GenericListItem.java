@@ -1,7 +1,6 @@
 package com.anpa.anpacr.domain;
 
 import java.io.Serializable;
-import java.util.Date;
 
 public class GenericListItem implements Serializable{
 

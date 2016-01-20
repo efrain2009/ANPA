@@ -55,6 +55,8 @@ public class Constants {
 	
 	public static final String ANPA_TWITTER_LINK = "twitter://user?user_id=88675906";
 	public static final String ANPA_TWITTER_LINK_BACKUP = "https://mobile.twitter.com/ANPACR";
+	
+	public static final String[] RACES = {"1,Perro", "2,Gato", "3,Ave", "4,Pez", "5,Roedor"};
 }
 
 

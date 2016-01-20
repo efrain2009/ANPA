@@ -3,11 +3,11 @@ package com.anpa.anpacr.database;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.anpa.anpacr.AnpacrApplication;
-
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import com.anpa.anpacr.AnpacrApplication;
 
 /**
  * Custom implementation of the SQLOpenHelper to handle the data access

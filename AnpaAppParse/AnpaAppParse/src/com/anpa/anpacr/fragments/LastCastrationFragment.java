@@ -18,7 +18,6 @@ import com.anpa.anpacr.activities.DetailCastrationActivity;
 import com.anpa.anpacr.adapter.CastrationListAdapter;
 import com.anpa.anpacr.common.Constants;
 import com.anpa.anpacr.domain.Castration;
-import com.anpa.anpacr.fragments.LastCastrationFragment;
 
 public class LastCastrationFragment extends SherlockFragment{
 	

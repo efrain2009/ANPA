@@ -1,12 +1,11 @@
 package com.anpa.anpacr;
 
-import com.parse.Parse;
-import com.parse.ParseACL;
-
-import com.parse.ParseUser;
-
 import android.app.Application;
 import android.content.Context;
+
+import com.parse.Parse;
+import com.parse.ParseACL;
+import com.parse.ParseUser;
 
 public class AnpacrApplication extends Application {
 

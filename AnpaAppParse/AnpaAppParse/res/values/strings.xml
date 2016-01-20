@@ -33,6 +33,10 @@
      <string name="txt_public_fb">Compartir en Facebook</string>
      <string name="txt_add_tip">Agregar consejo</string>
      <string name="bt_buton_add_tip">Agregar consejo</string>
+     <string name="txt_search_tip">Buscar</string>
+     <string name="txt_specie">Especie:</string>
+     <string name="txt_race">Raza:</string>
+     <string name="txt_disclaimer">*Aclaración: Los siguientes consejos no son elaborados por personal de ANPA, sino por la comunidad de usuarios. Queda a tu juicio el ponerlos en práctica o no.</string>
      
      
      

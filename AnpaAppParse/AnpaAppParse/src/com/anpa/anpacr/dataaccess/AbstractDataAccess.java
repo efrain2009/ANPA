@@ -1,9 +1,9 @@
 package com.anpa.anpacr.dataaccess;
 
-import com.anpa.anpacr.database.DatabaseHelper;
-
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+
+import com.anpa.anpacr.database.DatabaseHelper;
 
 /**
  * Abstract Data Access Object. All the specific data access objects should inherit this class. 
