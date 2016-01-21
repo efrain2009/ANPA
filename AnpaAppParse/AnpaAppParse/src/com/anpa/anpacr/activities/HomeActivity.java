@@ -96,7 +96,7 @@ public class HomeActivity extends SherlockActivity {
 	};
 	
 	private void startLostctivity(){
-		startActivity(new Intent(this, LostActivity.class));
+		startActivity(new Intent(this, LostSearchActivity.class));
 	}
 	
 	private OnClickListener onDonationClick = new OnClickListener() {

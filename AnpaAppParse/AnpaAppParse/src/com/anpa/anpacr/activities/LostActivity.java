@@ -1,5 +1,6 @@
 package com.anpa.anpacr.activities;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -117,9 +118,13 @@ LastLostFragment.OnLoadListListener{
 					final String sRaza = lostParse.getString("ANPA03_RAZA");
 					ParseFile imageFile = lostParse
 							.getParseFile("ANPA03_FOTO");
-					final Date dCreationDate = lostParse.getCreatedAt();
+					final Date dateCreated  = lostParse.getCreatedAt();
+					
+					SimpleDateFormat dt = new SimpleDateFormat(
+							"dd/MM/yyyy hh:mm aaa");
+					String date = dt.format(dateCreated);
 									
-					Lost newLost = new Lost(sIdLost, sNomMascota, sNomDueno,sTelefono, iProvincia, iCanton, sDetalle, sRaza, dCreationDate.toString(), imageFile.getData(), sLatitud, sLongitud);
+					Lost newLost = new Lost(sIdLost, sNomMascota, sNomDueno,sTelefono, iProvincia, iCanton, sDetalle, sRaza, date, imageFile.getData(), sLatitud, sLongitud);
 					lostList.add(newLost);
 				}				
 			} catch (ParseException e) {

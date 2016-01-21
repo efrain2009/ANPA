@@ -1,5 +1,6 @@
 package com.anpa.anpacr.activities;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -139,8 +140,12 @@ LastNewsFragment.OnLoadListListener{
 					final Date dCreationDate = newsParse.getCreatedAt();
 					
 					ParseFile imageFile = newsParse.getParseFile("ANPA01_IMAGE");
+					
+					SimpleDateFormat dt = new SimpleDateFormat(
+							"dd/MM/yyyy hh:mm aaa");
+					String date = dt.format(dCreationDate);
 				
-					News newNews = new News(sIdNews, sTitle, sContent, dCreationDate.toString(), imageFile.getData());
+					News newNews = new News(sIdNews, sTitle, sContent, date, imageFile.getData());
 					newsList.add(newNews);
 				}				
 			} catch (ParseException e) {
@@ -189,7 +194,7 @@ LastNewsFragment.OnLoadListListener{
 					ParseQuery<ParseObject> query = ParseQuery
 							.getQuery("ANPA05_FAQ");
 					query.addAscendingOrder("ANPA05_ORDEN");
-					query.whereEqualTo("ANPA05_TIPO", 0);
+					query.whereEqualTo("ANPA05_TIPO", 1);
 					query.selectKeys(Arrays.asList("ANPA05_PREGUNTA",
 							"ANPA05_ORDEN", "ANPA05_RESPUESTA", "ANPA05_TIPO"));// selecciona
 																				// las

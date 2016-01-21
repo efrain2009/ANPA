@@ -57,7 +57,6 @@ public class CastrationActivity extends AnpaAppFraqmentActivity implements
 		/* Instacia de los tabs a crear */
 		ActionBar.Tab tab_last_castration = actionBar.newTab();
 		tab_last_castration.setText(Constants.TITLE_LAST_CASTRATION);
-		//tab_last_castration.setTabListener(CastrationActivity.this);
 
 		ActionBar.Tab tab_freq_Answer_castration = actionBar.newTab();
 		tab_freq_Answer_castration.setText(Constants.TITLE_FREQ_ANSWER);
