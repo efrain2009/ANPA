@@ -1,16 +1,20 @@
 package com.anpa.anpacr.activities;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.Button;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import com.anpa.anpacr.R;
 import com.anpa.anpacr.adapter.SpinnerAdapter;
@@ -18,7 +22,7 @@ import com.anpa.anpacr.common.Constants;
 import com.anpa.anpacr.domain.GenericNameValue;
 
 public class TipSearchActivity extends AnpaAppFraqmentActivity {
-	private Spinner specieSpinner;
+	private Spinner specieSpinner, raceSpinner;
 	private SpinnerAdapter adapter;
 	
 		@Override
@@ -44,6 +48,8 @@ public class TipSearchActivity extends AnpaAppFraqmentActivity {
 			specieSpinner.setAdapter(adapter); // Set the custom adapter to the spinner
 			specieSpinner.setOnItemSelectedListener(onSelectItem);
 			
+			raceSpinner = (Spinner)findViewById(R.id.spn_race_selector);
+			
 			Button btnSearchTip = (Button)findViewById(R.id.btn_tip_search);
 			btnSearchTip.setOnClickListener(onSearch);
 		}
@@ -58,8 +64,7 @@ public class TipSearchActivity extends AnpaAppFraqmentActivity {
                 // Here you get the current item (a User object) that is selected by its position
                 GenericNameValue selectedItem = adapter.getItem(position);
                 // Here you can do the action you want to...
-                Toast.makeText(TipSearchActivity.this, "Seleccionado: " + selectedItem.getName() + "\n ID: " + selectedItem.getValue(),
-                    Toast.LENGTH_SHORT).show();
+                readSpecies(selectedItem.getValue());
             }
             @Override
             public void onNothingSelected(AdapterView<?> adapter) {  }
@@ -75,4 +80,72 @@ public class TipSearchActivity extends AnpaAppFraqmentActivity {
 				startActivity(new Intent(TipSearchActivity.this, TipsActivity.class));
 			}
 		};
+		
+		/* carga la lista de razas de una especie */
+        private void readSpecies(int specieId)
+        {
+        	ArrayList<GenericNameValue> speciesList = new ArrayList<GenericNameValue>();
+
+            String selectedFile = "";
+            switch (specieId) {
+			case 2:
+				selectedFile = "razas_gatos";
+				break;
+			case 3:
+				selectedFile = "razas_aves";
+				break;
+			case 4: 
+				selectedFile = "razas_peces";
+				break;
+			case 5:
+				selectedFile = "razas_roedores";
+				break;
+			default:
+				selectedFile = "razas_perros";
+				break;
+			}
+
+            BufferedReader in = null;
+            StringBuilder buf = new StringBuilder();
+            try{
+	            InputStream is = getApplicationContext().getAssets().open(selectedFile + ".txt");
+	            in = new BufferedReader(new InputStreamReader(is, "UTF-8"));
+	            
+	            String races;
+	            boolean isFirst = true;
+	            while ((races = in.readLine()) != null ){
+	                if (isFirst)
+	                    isFirst = false;
+	                else
+	                    buf.append('\n');
+	                buf.append(races);
+	            }
+
+	            String[] specieRacesArray = buf.toString().split("#");
+                
+	            for (String race : specieRacesArray)
+	            {
+	                String[] values = race.split(",");
+	                speciesList.add(new GenericNameValue(values[1], Integer.parseInt(values[0])));
+	            }
+            }
+            catch(IOException e) {
+                Log.e("OJO", "Error opening asset ");
+            } finally {
+                if (in != null) {
+                    try {
+                        in.close();
+                    } catch (IOException e) {
+                        Log.e("OJO", "Error closing asset ");
+                    }
+                }
+            }
+            
+            //Carga el spinner:
+            SpinnerAdapter adapterRaces = new SpinnerAdapter(TipSearchActivity.this,
+		            android.R.layout.simple_spinner_item,
+		            speciesList);
+            raceSpinner.setAdapter(adapterRaces);
+			
+        }
 }
