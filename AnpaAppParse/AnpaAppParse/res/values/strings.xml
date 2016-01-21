@@ -38,6 +38,9 @@
      <string name="txt_race">Raza:</string>
      <string name="txt_disclaimer">*Aclaración: Los siguientes consejos no son elaborados por personal de ANPA, sino por la comunidad de usuarios. Queda a tu juicio el ponerlos en práctica o no.</string>
      
+     <!-- Lost -->  
+     <string name="txt_search_lost">Buscar</string>
+     <string name="txt_disclaimer_lost">*Aclaración: Los siguientes anuncios de mascotas pérdidas son elaborados por la comunidad de usuarios.</string>
      
      
      <!-- Contacts -->
