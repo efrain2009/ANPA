@@ -1,8 +1,12 @@
 package com.anpa.anpacr.activities;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -25,8 +29,40 @@ public class DetailLostActivity extends SherlockFragmentActivity {
 		if (extras != null) {
 			Lost value = (Lost) extras.get(Constants.ID_OBJ_DETAIL_LOST);
 
-			TextView txt_detail_lost_title = (TextView) findViewById(R.id.txt_detail_lost_title);
-			txt_detail_lost_title.setText(value.get_snombreMascota());
+			TextView txt_nom_mascota = (TextView) findViewById(R.id.txt_nom_mascota);
+			txt_nom_mascota.setText(value.get_snombreMascota());
+			
+			TextView txt_raza = (TextView) findViewById(R.id.txt_raza_mascota);
+			txt_raza.setText(value.get_sraza());
+			
+			TextView txt_contacto = (TextView) findViewById(R.id.txt_contacto);
+			txt_contacto.setText(value.get_snombreDueno());
+			
+			TextView txt_telefono = (TextView) findViewById(R.id.txt_telefono);
+			txt_telefono.setText(value.get_stelefono());
+			
+			TextView txt_short_direction = (TextView) findViewById(R.id.txt_short_direction);
+			
+			
+			String provincia = "";
+			
+			for (String prov : Constants.PROVINCE) {
+				String[] provSplit = prov.split(",");
+				if(provSplit[0].contains(value.get_iprovinvia().toString()))
+					 provincia = provSplit[1];
+			}
+					
+			String canton = "";
+			
+			for (String cant : Constants.CANTON) {
+				String[] cantSplit = cant.split(",");
+				if(cantSplit[1].contains(value.get_icanton().toString()))
+					 canton = cantSplit[2];
+			}	
+			
+			
+			String txtShortDirection = canton + ", " + provincia;
+			txt_short_direction.setText(txtShortDirection);
 
 			TextView txt_detail_lost_description = (TextView) findViewById(R.id.txt_detail_lost_description);
 			txt_detail_lost_description.setText(value.get_sdetalle());
@@ -39,6 +75,20 @@ public class DetailLostActivity extends SherlockFragmentActivity {
 				      value.get_bFoto(), 0, value.get_bFoto().length);
 			img_detail_lost.setImageBitmap(bmpImage);
 		}
+		
+		Button btnAddLost = (Button)findViewById(R.id.btn_add_lost);
+		btnAddLost.setOnClickListener(onSearch);
 	}
+	
+	/**
+	 * Listener del botón
+	 */
+	private OnClickListener onSearch = new OnClickListener() {
+		
+		@Override
+		public void onClick(View v) {
+			startActivity(new Intent(DetailLostActivity.this, AddTipActivity.class));
+		}
+	};
 
 }

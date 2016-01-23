@@ -14,6 +14,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.anpa.anpacr.R;
+import com.anpa.anpacr.common.Constants;
+import com.anpa.anpacr.domain.GenericNameValue;
 import com.anpa.anpacr.domain.Lost;
 
 public class LostListAdapter extends BaseAdapter{
@@ -61,13 +63,27 @@ public class LostListAdapter extends BaseAdapter{
 		TextView txt_title_lost = (TextView) view.findViewById(R.id.txt_title_lost);
 		txt_title_lost.setText(item.get_snombreDueno());
 				
-		TextView txt_descrip_lost = (TextView) view.findViewById(R.id.txt_descrip_lost);
-		txt_descrip_lost.setText(item.get_sdetalle());
+		TextView txt_short_direction_lost = (TextView) view.findViewById(R.id.txt_short_direction_lost);		
 		
-		String txtPreviewDescrip = item.get_sdetalle();
-		if(txtPreviewDescrip.length() > 30)
-			txtPreviewDescrip = txtPreviewDescrip.substring(0,30) + "...";
-		txt_descrip_lost.setText(txtPreviewDescrip);
+		String provincia = "";
+		
+		for (String prov : Constants.PROVINCE) {
+			String[] provSplit = prov.split(",");
+			if(provSplit[0].contains(item.get_iprovinvia().toString()))
+				 provincia = provSplit[1];
+		}
+				
+		String canton = "";
+		
+		for (String cant : Constants.CANTON) {
+			String[] cantSplit = cant.split(",");
+			if(cantSplit[1].contains(item.get_icanton().toString()))
+				 canton = cantSplit[2];
+		}	
+		
+		
+		String txtShortDirection = canton + ", " + provincia;
+		txt_short_direction_lost.setText(txtShortDirection);
 		
 		ImageView img_lost = (ImageView) view.findViewById(R.id.img_lost);
 		Bitmap bmpImage = BitmapFactory.decodeByteArray(
