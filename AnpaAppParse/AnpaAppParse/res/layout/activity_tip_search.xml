@@ -26,6 +26,7 @@
             android:id="@+id/spn_specie_selector"
             android:layout_width="0dip"
             android:layout_height="wrap_content"
+            android:background="@drawable/selector_spinner_title_style"
             android:layout_weight="0.8" />
     </LinearLayout>
     
@@ -49,6 +50,7 @@
             android:id="@+id/spn_race_selector"
             android:layout_width="0dip"
             android:layout_height="wrap_content"
+            android:background="@drawable/selector_spinner_title_style"
             android:layout_weight="0.8" />
     </LinearLayout>
 

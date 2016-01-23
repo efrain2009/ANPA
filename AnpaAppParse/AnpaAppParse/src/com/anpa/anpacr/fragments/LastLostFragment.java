@@ -35,7 +35,7 @@ public class LastLostFragment extends SherlockFragment{
 	 */
 	@Override
 	public View onCreateView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-		View view = inflater.inflate(R.layout.fragment_list_lost, container, false);
+		View view = inflater.inflate(R.layout.activity_list_lost, container, false);
 		/**
 		 * Se instancia el interface
 		 */

@@ -7,34 +7,36 @@ import java.util.Date;
 import java.util.List;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.Button;
+import android.widget.ListView;
 import android.widget.Toast;
 
-import com.actionbarsherlock.app.ActionBar;
-import com.actionbarsherlock.app.ActionBar.Tab;
 import com.anpa.anpacr.R;
+import com.anpa.anpacr.adapter.LostListAdapter;
 import com.anpa.anpacr.common.Constants;
 import com.anpa.anpacr.domain.Lost;
-import com.anpa.anpacr.fragments.LastLostFragment;
 import com.parse.ParseException;
 import com.parse.ParseFile;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
-public class LostActivity extends AnpaAppFraqmentActivity implements 
-LastLostFragment.OnLoadListListener{
+public class LostActivity extends AnpaAppFraqmentActivity{
 	
 	List<Lost> lostList;
-	
-	public static final String TAG_LOST = "Perdidos";
+	private LostListAdapter lostAdapter;
+	private ListView lv_lost;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_empty);
+		setContentView(R.layout.activity_list_lost);
 
 		lostList = new ArrayList<Lost>();
 		
@@ -42,50 +44,20 @@ LastLostFragment.OnLoadListListener{
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 		getSupportActionBar().setTitle(Constants.TITLE_DESCRIPTION_LOST);
 		
-		ActionBar actionBar = getSupportActionBar();
-		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+		Button btnAddLost = (Button) findViewById(R.id.btn_add_lost);
+		btnAddLost.setOnClickListener(onAddLost);
 		
-		/*Instacia de los tabs a crear*/
-		ActionBar.Tab tab_last_lost = actionBar.newTab();
-		tab_last_lost.setText(Constants.TITLE_LAST_LOST);
+		lv_lost = (ListView) findViewById(R.id.list_lost);
+		lostAdapter = new LostListAdapter(this, lostList);
+		lv_lost.setOnItemClickListener(onclickListLost);
 		
-		//Se carga la lista de noticias
+		//Se carga la lista de perdidos
 		try {
 			new LoadLostParse().execute(""); //El ".get" Hace esperar hasta que el hilo termine.
 					
 		} catch (Exception e) {
-			showMessage("Ups! Perdimos el rastro de las noticias. Intenta más tarde.");
+			showMessage("Ups! Perdimos el rastro de las mascotas perdidas. Intenta más tarde.");
 			e.printStackTrace();
-		}
-				
-		/*Asigna a los tabs el listener*/
-		tab_last_lost.setTabListener(new LostListener());
-		
-		/*Agrega los tabs a creat*/
-		actionBar.addTab(tab_last_lost);
-	}
-	
-	/*Lisenner para cambio de tabs */
-	private class LostListener implements ActionBar.TabListener{
-		@Override
-		public void onTabSelected(Tab tab, FragmentTransaction ft) {
-			// TODO Auto-generated method stub
-			if(tab.getPosition() == 0){
-				LastLostFragment frag = new LastLostFragment();
-				ft.replace(android.R.id.content, frag, TAG_LOST);
-			}
-		}
-
-		@Override
-		public void onTabUnselected(Tab tab, FragmentTransaction ft) {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public void onTabReselected(Tab tab, FragmentTransaction ft) {
-			// TODO Auto-generated method stub
-			
 		}
 	}
 	
@@ -138,11 +110,8 @@ LastLostFragment.OnLoadListListener{
 		protected void onPostExecute(Boolean result) {
 			if (result) {
 				progressDialog.dismiss();
-				getSupportActionBar().setSelectedNavigationItem(0);
-				LastLostFragment frag = new LastLostFragment();
-	            FragmentManager fm = getSupportFragmentManager();
-	            fm.beginTransaction().replace(android.R.id.content, frag, TAG_LOST).commit();
-	            fm.popBackStackImmediate();
+				lostAdapter.notifyDataSetChanged();
+				lv_lost.setAdapter(lostAdapter);
 			}
 		}
 	}
@@ -155,12 +124,26 @@ LastLostFragment.OnLoadListListener{
 		Toast.makeText(LostActivity.this, message, Toast.LENGTH_SHORT).show();
 	}
 	
-	/*
-	 * Implementación del Interface que envía la lista al fragment.
+	private OnItemClickListener onclickListLost = new OnItemClickListener() {
+		@Override
+		public void onItemClick(AdapterView<?> parent, View view, int position,
+				long id) {
+			Lost lost = (Lost) lostAdapter.getItem(position);
+						
+			Intent intent = new Intent(LostActivity.this, DetailLostActivity.class);
+			intent.putExtra(Constants.ID_OBJ_DETAIL_LOST, lost);
+			startActivity(intent);
+		}
+	};
+	
+	/**
+	 * Listener del botón
 	 */
-	@Override
-	public List<Lost> loadList() {
-		return lostList;
-	}
-
+	private OnClickListener onAddLost = new OnClickListener() {
+		
+		@Override
+		public void onClick(View v) {
+			startActivity(new Intent(LostActivity.this, AddTipActivity.class));
+		}
+	};
 }

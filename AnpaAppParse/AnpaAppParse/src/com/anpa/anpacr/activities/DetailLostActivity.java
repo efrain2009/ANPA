@@ -48,8 +48,10 @@ public class DetailLostActivity extends SherlockFragmentActivity {
 			
 			for (String prov : Constants.PROVINCE) {
 				String[] provSplit = prov.split(",");
-				if(provSplit[0].contains(value.get_iprovinvia().toString()))
+				if(provSplit[0].contains(value.get_iprovinvia().toString())){
 					 provincia = provSplit[1];
+					 break;
+				}
 			}
 					
 			String canton = "";
