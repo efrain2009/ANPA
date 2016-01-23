@@ -42,7 +42,7 @@ public class TipSearchActivity extends AnpaAppFraqmentActivity {
 			}
 			
 			adapter = new SpinnerAdapter(TipSearchActivity.this,
-		            android.R.layout.simple_spinner_item,
+					R.layout.spinner_item,
 		            racesItems);
 			specieSpinner = (Spinner) findViewById(R.id.spn_specie_selector);
 			specieSpinner.setAdapter(adapter); // Set the custom adapter to the spinner
@@ -143,7 +143,7 @@ public class TipSearchActivity extends AnpaAppFraqmentActivity {
             
             //Carga el spinner:
             SpinnerAdapter adapterRaces = new SpinnerAdapter(TipSearchActivity.this,
-		            android.R.layout.simple_spinner_item,
+		            R.layout.spinner_item,
 		            speciesList);
             raceSpinner.setAdapter(adapterRaces);
 			

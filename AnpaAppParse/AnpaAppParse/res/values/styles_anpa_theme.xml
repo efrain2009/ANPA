@@ -20,11 +20,10 @@
 <resources>
 
     <style name="Theme.Anpa_theme" parent="@android:style/Theme.Holo.Light.DarkActionBar">
-        <item name="android:actionBarItemBackground">@drawable/selectable_background_anpa_theme</item>
         <item name="android:popupMenuStyle">@style/PopupMenu.Anpa_theme</item>
-        <item name="android:dropDownListViewStyle">@style/DropDownListView.Anpa_theme</item>
+<!--         <item name="android:dropDownListViewStyle">@style/DropDownListView.Anpa_theme</item> -->
 <!--         <item name="android:actionBarTabStyle">@style/ActionBarTabStyle.Anpa_theme</item> -->
-        <item name="android:actionDropDownStyle">@style/DropDownNav.Anpa_theme</item>
+<!--         <item name="android:actionDropDownStyle">@style/DropDownNav.Anpa_theme</item> -->
         <item name="android:actionBarStyle">@style/ActionBar.Solid.Anpa_theme</item>
         <item name="android:actionModeBackground">@drawable/cab_background_top_anpa_theme</item>
         <item name="android:actionModeSplitBackground">@drawable/cab_background_bottom_anpa_theme</item>
@@ -36,6 +35,8 @@
         
                 <!-- Light.DarkActionBar specific -->
         <item name="android:actionBarWidgetTheme">@style/Theme.Anpa_theme.Widget</item>
+<!--         <item name="android:spinnerItemStyle">@style/SpinnerItem</item> -->
+<!--         <item name="android:spinnerDropDownItemStyle">@style/SpinnerDropDownItem</item> -->
     </style>
 
     <style name="ActionBar.Solid.Anpa_theme" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
@@ -55,7 +56,10 @@
     </style>
 
     <style name="DropDownListView.Anpa_theme" parent="@android:style/Widget.Holo.ListView.DropDown">
-        <item name="android:listSelector">@drawable/selectable_background_anpa_theme</item>
+        <item name="android:listSelector">@drawable/selector_spinner_title_style</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:popupBackground">@android:color/transparent</item>
+        <item name="background">@android:color/transparent</item>
     </style>
 
     <style name="ActionBarTabStyle.Anpa_theme" parent="@android:style/Widget.Holo.ActionBar.TabView">
@@ -63,23 +67,21 @@
     </style>
 
     <style name="DropDownNav.Anpa_theme" parent="@android:style/Widget.Holo.Spinner">
-        <item name="android:background">@drawable/spinner_background_ab_anpa_theme</item>
-        <item name="android:popupBackground">@drawable/menu_dropdown_panel_anpa_theme</item>
-        <item name="android:dropDownSelector">@drawable/selectable_background_anpa_theme</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:popupBackground">@android:color/transparent</item>
+        <item name="background">@android:color/transparent</item>
+<!--         <item name="android:dropDownSelector">@drawable/selectable_background_anpa_theme</item> -->
     </style>
     
     <style name="ProgressBar.Anpa_theme" parent="@android:style/Widget.Holo.ProgressBar.Horizontal">
         <item name="android:progressDrawable">@drawable/progress_horizontal_anpa_theme</item>
     </style>
     
-<!--     <style name="ActionButton.CloseMode.Anpa_theme" parent="@android:style/Widget.Holo.ActionButton.CloseMode"> -->
-<!--         <item name="android:background">@drawable/btn_cab_done_anpa_theme</item> -->
-<!--     </style> -->
 
     <!-- this style is only referenced in a Light.DarkActionBar based theme -->
     <style name="Theme.Anpa_theme.Widget" parent="@android:style/Theme.Holo">
         <item name="android:popupMenuStyle">@style/PopupMenu.Anpa_theme</item>
-        <item name="android:dropDownListViewStyle">@style/DropDownListView.Anpa_theme</item>
+<!--         <item name="android:dropDownListViewStyle">@style/DropDownListView.Anpa_theme</item> -->
     </style>
 
     <!-- Estilos nuevos Efra 2016 -->
@@ -98,4 +100,14 @@
     <item name="android:background">@drawable/selector_button_style</item>
     <item name="android:textColor">@android:color/white</item> <!-- Here is specified text color -->
 </style>
+
+    <!-- Spinner -->
+    <style name="SpinnerItem">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:background">@color/item_semitransparent_parent</item>
+    </style>
+    <style name="SpinnerDropDownItem">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:background">@drawable/selector_spinner_title_style</item>
+    </style>
 </resources>

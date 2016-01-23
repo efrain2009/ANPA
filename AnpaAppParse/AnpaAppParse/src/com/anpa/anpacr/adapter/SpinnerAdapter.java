@@ -2,23 +2,25 @@ package com.anpa.anpacr.adapter;
 
 import java.util.ArrayList;
 
-import com.anpa.anpacr.domain.GenericNameValue;
-
-import android.content.Context;
+import android.app.Activity;
 import android.graphics.Color;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import com.anpa.anpacr.R;
+import com.anpa.anpacr.domain.GenericNameValue;
+
 public class SpinnerAdapter extends ArrayAdapter<GenericNameValue>{
 
     // Your sent context
-    private Context context;
+    private Activity context;
     // Your custom values for the spinner (User)
     private ArrayList<GenericNameValue> values;
 
-    public SpinnerAdapter(Context context, int textViewResourceId,
+    public SpinnerAdapter(Activity context, int textViewResourceId,
     		ArrayList<GenericNameValue> values) {
         super(context, textViewResourceId, values);
         this.context = context;
@@ -57,10 +59,14 @@ public class SpinnerAdapter extends ArrayAdapter<GenericNameValue>{
     @Override
     public View getDropDownView(int position, View convertView,
             ViewGroup parent) {
-        TextView label = new TextView(context);
-        label.setTextColor(Color.BLACK);
-        label.setText(values.get(position).getName());
+    	View row = convertView;
+        if (row == null) {
+        LayoutInflater inflater = context.getLayoutInflater();
+        row = inflater.inflate(R.layout.spinner_item, parent, false);
+       }
+        TextView name = (TextView) row.findViewById(R.id.txt_spinner);
+        name.setText(values.get(position).getName());
 
-        return label;
+        return row;
     }
 }
