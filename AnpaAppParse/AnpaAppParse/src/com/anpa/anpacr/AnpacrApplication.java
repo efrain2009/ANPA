@@ -15,7 +15,7 @@ public class AnpacrApplication extends Application {
 		super.onCreate();
 
 		// Add your initialization code here
-		Parse.initialize(this, "d4TSBDUrzXvj0MZaKWeo8OfJflWJAXS5BenBdJrL", "4CkjGy8T98wth9lB9ifGqEoJyRiX3RZPtYkmJEjZ"); //AnpaCRApp
+		Parse.initialize(this, "vSPnwHOnhkvzj4cYe0t623oe2x079bwQwUW5vWMv", "0GL5wtFA6HDM9ED0xOobY1orFC7uuchLPOu8EIZk"); //AnpaCRApp
 
 		ParseUser.enableAutomaticUser();
 		ParseACL defaultACL = new ParseACL();
