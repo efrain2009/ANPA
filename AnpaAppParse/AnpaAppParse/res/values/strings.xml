@@ -50,6 +50,8 @@
      <string name="txt_subtitle_short_direction">Perdido en</string>
      <string name="txt_subtitle_detalle">Detalle</string>
      <string name="txt_add_lost">Encontrar a mi mascota</string>
+     <string name="txt_add_lost_photo">Seleccionar Foto</string>
+     
      
      
      <!-- Contacts -->
