@@ -89,7 +89,7 @@ public class DetailLostActivity extends SherlockFragmentActivity {
 		
 		@Override
 		public void onClick(View v) {
-			startActivity(new Intent(DetailLostActivity.this, TipSearchActivity.class));
+			startActivity(new Intent(DetailLostActivity.this, AddLostActivity.class));
 		}
 	};
 
