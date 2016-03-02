@@ -68,28 +68,29 @@ public class LostActivity extends AnpaAppFraqmentActivity{
 			progressDialog = ProgressDialog.show(LostActivity.this,
 					"Espera un momento", "Olfateando pérdidos....");
 		}
+		
 		@Override
 		protected Boolean doInBackground(String... param) {
 			try {
-				ParseQuery<ParseObject> query = ParseQuery.getQuery("ANPA03_PERDIDOS");
-				query.selectKeys(Arrays.asList("ANPA03_NOM_MASCOTA", "ANPA03_NOM_DUENO",
-						"ANPA03_TELEFONO","ANPA03_PROVINCIA","ANPA03_CANTON",
-						"ANPA03_FOTO","ANPA03_DETALLE", "ANPA03_LATITUD","ANPA03_LONGITUD", "ANPA03_RAZA"));// selecciona las columnas a presentar
+				ParseQuery<ParseObject> query = ParseQuery.getQuery(Constants.TABLE_PERDIDOS);
+				query.selectKeys(Arrays.asList(Constants.NOM_MASCOTA, Constants.NOM_DUENO,
+						Constants.TELEFONO_PERDIDO,Constants.PROVINCIA_PERDIDO,Constants.CANTON_PERDIDO,
+						Constants.FOTO_PERDIDO,Constants.DETALLE_PERDIDO, Constants.LATITUD_PERDIDO,Constants.LONGITUD_PERDIDO, Constants.RAZA_PERDIDO));// selecciona las columnas a presentar
 				List<ParseObject> results = query.find();
 				
 				for (ParseObject lostParse : results) {
 					final String sIdLost = lostParse.getObjectId();
-					final String sNomMascota = lostParse.getString("ANPA03_NOM_MASCOTA");
-					final String sNomDueno = lostParse.getString("ANPA03_NOM_DUENO");
-					final String sTelefono = lostParse.getString("ANPA03_TELEFONO");
-					final int iProvincia = lostParse.getInt("ANPA03_PROVINCIA");
-					final int iCanton = lostParse.getInt("ANPA03_CANTON");
-					final String sDetalle = lostParse.getString("ANPA03_DETALLE");
-					final String sLatitud = lostParse.getString("ANPA03_LATITUD");
-					final String sLongitud = lostParse.getString("ANPA03_LONGITUD");
-					final String sRaza = lostParse.getString("ANPA03_RAZA");
+					final String sNomMascota = lostParse.getString(Constants.NOM_MASCOTA);
+					final String sNomDueno = lostParse.getString(Constants.NOM_DUENO);
+					final String sTelefono = lostParse.getString(Constants.TELEFONO_PERDIDO);
+					final int iProvincia = lostParse.getInt(Constants.PROVINCIA_PERDIDO);
+					final int iCanton = lostParse.getInt(Constants.CANTON_PERDIDO);
+					final String sDetalle = lostParse.getString(Constants.DETALLE_PERDIDO);
+					final String sLatitud = lostParse.getString(Constants.LATITUD_PERDIDO);
+					final String sLongitud = lostParse.getString(Constants.LONGITUD_PERDIDO);
+					final String sRaza = lostParse.getString(Constants.RAZA_PERDIDO);
 					ParseFile imageFile = lostParse
-							.getParseFile("ANPA03_FOTO");
+							.getParseFile(Constants.FOTO_PERDIDO);
 					final Date dateCreated  = lostParse.getCreatedAt();
 					
 					SimpleDateFormat dt = new SimpleDateFormat(
@@ -143,7 +144,7 @@ public class LostActivity extends AnpaAppFraqmentActivity{
 		
 		@Override
 		public void onClick(View v) {
-			startActivity(new Intent(LostActivity.this, AddTipActivity.class));
+			startActivity(new Intent(LostActivity.this, AddLostActivity.class));
 		}
 	};
 }

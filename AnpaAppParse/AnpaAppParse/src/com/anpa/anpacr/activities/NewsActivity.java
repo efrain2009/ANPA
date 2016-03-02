@@ -129,17 +129,17 @@ LastNewsFragment.OnLoadListListener{
 		@Override
 		protected Boolean doInBackground(String... param) {
 			try {
-				ParseQuery<ParseObject> query = ParseQuery.getQuery("ANPA01_NOTICIAS");
-				query.selectKeys(Arrays.asList("ANPA01_TITULO", "ANPA01_CONTENIDO","ANPA01_IMAGE"));// selecciona las columnas a presentar
+				ParseQuery<ParseObject> query = ParseQuery.getQuery(Constants.TABLE_NOTICIA);
+				query.selectKeys(Arrays.asList(Constants.TITULO_NOTICIA, Constants.CONTENIDO_NOTICIA,Constants.IMAGEN_NOTICIA));// selecciona las columnas a presentar
 				List<ParseObject> results = query.find();
 				
 				for (ParseObject newsParse : results) {
 					final String sIdNews = newsParse.getObjectId();
-					final String sTitle = newsParse.getString("ANPA01_TITULO");
-					final String sContent = newsParse.getString("ANPA01_CONTENIDO");
+					final String sTitle = newsParse.getString(Constants.TITULO_NOTICIA);
+					final String sContent = newsParse.getString(Constants.CONTENIDO_NOTICIA);
 					final Date dCreationDate = newsParse.getCreatedAt();
 					
-					ParseFile imageFile = newsParse.getParseFile("ANPA01_IMAGE");
+					ParseFile imageFile = newsParse.getParseFile(Constants.IMAGEN_NOTICIA);
 					
 					SimpleDateFormat dt = new SimpleDateFormat(
 							"dd/MM/yyyy hh:mm aaa");
@@ -192,11 +192,11 @@ LastNewsFragment.OnLoadListListener{
 			protected Boolean doInBackground(String... param) {
 				try {
 					ParseQuery<ParseObject> query = ParseQuery
-							.getQuery("ANPA05_FAQ");
-					query.addAscendingOrder("ANPA05_ORDEN");
-					query.whereEqualTo("ANPA05_TIPO", 1);
-					query.selectKeys(Arrays.asList("ANPA05_PREGUNTA",
-							"ANPA05_ORDEN", "ANPA05_RESPUESTA", "ANPA05_TIPO"));// selecciona
+							.getQuery(Constants.TABLE_PREGUNTA_FREC);
+					query.addAscendingOrder(Constants.ORDEN_PREGUNTA);
+					query.whereEqualTo(Constants.TIPO_PREGUNTA, 1);
+					query.selectKeys(Arrays.asList(Constants.DESC_PREGUNTA,
+							Constants.ORDEN_PREGUNTA, Constants.RESPESTA_PREGUNTA, Constants.TIPO_PREGUNTA));// selecciona
 																				// las
 																				// columnas
 																				// a
@@ -205,9 +205,9 @@ LastNewsFragment.OnLoadListListener{
 
 					for (ParseObject parse : results) {
 						final String sId = parse.getObjectId();
-						final String sPregunta = parse.getString("ANPA05_PREGUNTA");
+						final String sPregunta = parse.getString(Constants.DESC_PREGUNTA);
 						final String sRespuesta = parse
-								.getString("ANPA05_RESPUESTA");
+								.getString(Constants.RESPESTA_PREGUNTA);
 						final Date dCreationDate = parse.getCreatedAt();
 
 						FreqAnswer newFreqAnswer = new FreqAnswer();
@@ -250,10 +250,10 @@ LastNewsFragment.OnLoadListListener{
 			protected Boolean doInBackground(String... param) {
 				try {
 					ParseQuery<ParseObject> query = ParseQuery
-							.getQuery("ANPA06_PATROCINIOS");
-					query.addAscendingOrder("ANPA06_ORDEN");
-					query.selectKeys(Arrays.asList("ANPA06_NOMBRE",
-							"ANPA06_DESCRIPCION", "ANPA06_ORDEN", "ANPA06_URL", "ANPA06_IMAGEN"));// selecciona
+							.getQuery(Constants.TABLE_PATROCINIO);
+					query.addAscendingOrder(Constants.ORDEN_PATROCINIO);
+					query.selectKeys(Arrays.asList(Constants.NOMBRE_PATROCINIO,
+							Constants.DESCRIPCION_PATROCINIO, Constants.ORDEN_PATROCINIO, Constants.URL_PATROCINIO, Constants.IMAGEN_PATROCINIO));// selecciona
 																				// las
 																				// columnas
 																				// a
@@ -262,16 +262,16 @@ LastNewsFragment.OnLoadListListener{
 
 					for (ParseObject parse : results) {
 						final String sId = parse.getObjectId();
-						final String sNombre = parse.getString("ANPA06_NOMBRE");
+						final String sNombre = parse.getString(Constants.NOMBRE_PATROCINIO);
 						final String sDescripcion = parse
-								.getString("ANPA06_DESCRIPCION");
+								.getString(Constants.DESCRIPCION_PATROCINIO);
 						final Integer sOrden = parse
-								.getInt("ANPA06_ORDEN");
+								.getInt(Constants.ORDEN_PATROCINIO);
 						final Date dCreationDate = parse.getCreatedAt();
 						final String sURL = parse
-								.getString("ANPA06_URL");
+								.getString(Constants.URL_PATROCINIO);
 						ParseFile imageFile = parse
-								.getParseFile("ANPA06_IMAGEN");
+								.getParseFile(Constants.IMAGEN_PATROCINIO);
 
 						Sponsor newNews = new Sponsor();
 						newNews.set_lId(sId);

@@ -117,16 +117,19 @@ public class FreqAnswerActivity  extends AnpaAppFraqmentActivity implements Freq
 			@Override
 			protected Boolean doInBackground(String... param) {
 				try {
-					ParseQuery<ParseObject> query = ParseQuery.getQuery("ANPA05_FAQ");
-					query.addAscendingOrder("ANPA05_ORDEN");
-					query.whereEqualTo("ANPA05_TIPO", 1);
-					query.selectKeys(Arrays.asList("ANPA05_PREGUNTA", "ANPA05_ORDEN", "ANPA05_RESPUESTA", "ANPA05_TIPO"));// selecciona las columnas a presentar
+					ParseQuery<ParseObject> query = ParseQuery
+							.getQuery(Constants.TABLE_PREGUNTA_FREC);
+					query.addAscendingOrder(Constants.ORDEN_PREGUNTA);
+					query.whereEqualTo(Constants.TIPO_PREGUNTA, 1);
+					query.selectKeys(Arrays.asList(Constants.DESC_PREGUNTA,
+							Constants.ORDEN_PREGUNTA, Constants.RESPESTA_PREGUNTA, Constants.TIPO_PREGUNTA));// selecciona
+					
 					List<ParseObject> results = query.find();
 					
 					for (ParseObject parse : results) {
 						final String sId = parse.getObjectId();
-						final String sPregunta = parse.getString("ANPA05_PREGUNTA");
-						final String sRespuesta = parse.getString("ANPA05_RESPUESTA");
+						final String sPregunta = parse.getString(Constants.DESC_PREGUNTA);
+						final String sRespuesta = parse.getString(Constants.RESPESTA_PREGUNTA);
 						final Date dCreationDate = parse.getCreatedAt();
 						
 						FreqAnswer newFreqAnswer = new FreqAnswer();

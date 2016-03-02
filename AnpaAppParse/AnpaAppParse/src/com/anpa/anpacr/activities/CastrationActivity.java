@@ -138,16 +138,16 @@ public class CastrationActivity extends AnpaAppFraqmentActivity implements
 				Calendar currentDate = Calendar.getInstance(); // Get the
 																// current date
 				ParseQuery<ParseObject> query = ParseQuery
-						.getQuery("ANPA04_EVENTO");
-				query.addAscendingOrder("ANPA04_HORARIO_INICIO");
-				query.whereGreaterThan("ANPA04_HORARIO_INICIO",
+						.getQuery(Constants.TABLE_CASTRACIONES);
+				query.addAscendingOrder(Constants.HORARIO_INICIO_CASTRACION);
+				query.whereGreaterThan(Constants.HORARIO_INICIO_CASTRACION,
 						currentDate.getTime());
-				query.selectKeys(Arrays.asList("ANPA04_NOMBRE_EVENTO",
-						"ANPA04_DESCRIPCION", "ANPA04_DOCTOR", "ANPA04_MONTO",
-						"ANPA04_DIRECCION", "ANPA04_ENCARGADO",
-						"ANPA04_HORARIO_INICIO", "ANPA04_TIPO_EVENTO",
-						"ANPA04_LATITUD", "ANPA04_HORARIO_FIN",
-						"ANPA04_LONGITUD", "ANPA04_IMAGE"));// selecciona las
+				query.selectKeys(Arrays.asList(Constants.NOMBRE_CASTRACION,
+						Constants.DESCRIPCION_CASTRACION, Constants.DOCTOR_CASTRACION, Constants.MONTO_CASTRACION,
+						Constants.DIRECCION_CASTRACION, Constants.ENCARGADO_CASTRACION,
+						Constants.HORARIO_INICIO_CASTRACION, Constants.TIPO_EVENTO_CASTRACION,
+						Constants.LATITUD_CASTRACION, Constants.HORARIO_FIN_CASTRACION,
+						Constants.LONGITUD_CASTRACION, Constants.IMAGE_CASTRACION));// selecciona las
 															// columnas a
 															// presentar
 				List<ParseObject> results = query.find();
@@ -155,31 +155,31 @@ public class CastrationActivity extends AnpaAppFraqmentActivity implements
 				for (ParseObject CastrationParse : results) {
 					final String sIdCastration = CastrationParse.getObjectId();
 					final String sNombre = CastrationParse
-							.getString("ANPA04_NOMBRE_EVENTO");
+							.getString(Constants.NOMBRE_CASTRACION);
 					final String sDescripcion = CastrationParse
-							.getString("ANPA04_DESCRIPCION");
+							.getString(Constants.DESCRIPCION_CASTRACION);
 					final Date dCreationDate = CastrationParse.getCreatedAt();
 					final String sDoctor = CastrationParse
-							.getString("ANPA04_DOCTOR");
+							.getString(Constants.DOCTOR_CASTRACION);
 					final Double monto = CastrationParse
-							.getDouble("ANPA04_MONTO");
+							.getDouble(Constants.MONTO_CASTRACION);
 					final String direccion = CastrationParse
-							.getString("ANPA04_DIRECCION");
+							.getString(Constants.DIRECCION_CASTRACION);
 					final String encargado = CastrationParse
-							.getString("ANPA04_ENCARGADO");
+							.getString(Constants.ENCARGADO_CASTRACION);
 					final Integer tipo = CastrationParse
-							.getInt("ANPA04_TIPO_EVENTO");
+							.getInt(Constants.TIPO_EVENTO_CASTRACION);
 					final String latitud = CastrationParse
-							.getString("ANPA04_LATITUD");
+							.getString(Constants.LATITUD_CASTRACION);
 					final String longitud = CastrationParse
-							.getString("ANPA04_LONGITUD");
+							.getString(Constants.LONGITUD_CASTRACION);
 					final Date dInicioDate = CastrationParse
-							.getDate("ANPA04_HORARIO_INICIO");
+							.getDate(Constants.HORARIO_INICIO_CASTRACION);
 					final Date dFinDate = CastrationParse
-							.getDate("ANPA04_HORARIO_FIN");
+							.getDate(Constants.HORARIO_FIN_CASTRACION);
 
 					ParseFile imageFile = CastrationParse
-							.getParseFile("ANPA04_IMAGE");
+							.getParseFile(Constants.IMAGE_CASTRACION);
 
 					Castration newCastration = new Castration();
 					newCastration.set_lId(sIdCastration);
@@ -250,11 +250,11 @@ public class CastrationActivity extends AnpaAppFraqmentActivity implements
 		protected Boolean doInBackground(String... param) {
 			try {
 				ParseQuery<ParseObject> query = ParseQuery
-						.getQuery("ANPA05_FAQ");
-				query.addAscendingOrder("ANPA05_ORDEN");
-				query.whereEqualTo("ANPA05_TIPO", 0);
-				query.selectKeys(Arrays.asList("ANPA05_PREGUNTA",
-						"ANPA05_ORDEN", "ANPA05_RESPUESTA", "ANPA05_TIPO"));// selecciona
+						.getQuery(Constants.TABLE_PREGUNTA_FREC);
+				query.addAscendingOrder(Constants.ORDEN_PREGUNTA);
+				query.whereEqualTo(Constants.TIPO_PREGUNTA, 0);
+				query.selectKeys(Arrays.asList(Constants.DESC_PREGUNTA,
+						Constants.ORDEN_PREGUNTA, Constants.RESPESTA_PREGUNTA, Constants.TIPO_PREGUNTA));// selecciona
 																			// las
 																			// columnas
 																			// a
@@ -263,9 +263,9 @@ public class CastrationActivity extends AnpaAppFraqmentActivity implements
 
 				for (ParseObject parse : results) {
 					final String sId = parse.getObjectId();
-					final String sPregunta = parse.getString("ANPA05_PREGUNTA");
+					final String sPregunta = parse.getString(Constants.DESC_PREGUNTA);
 					final String sRespuesta = parse
-							.getString("ANPA05_RESPUESTA");
+							.getString(Constants.RESPESTA_PREGUNTA);
 					final Date dCreationDate = parse.getCreatedAt();
 
 					FreqAnswer newFreqAnswer = new FreqAnswer();

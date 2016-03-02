@@ -1,10 +1,73 @@
 package com.anpa.anpacr.common;
 
+import java.util.Arrays;
+
 
 public class Constants {
-
-	/*Home Activity*/
 	
+	/*Table Perdidos*/
+	public final static String TABLE_PERDIDOS = "ANPA03_PERDIDOS";
+	public final static String NOM_MASCOTA = "ANPA03_NOM_MASCOTA";
+	public final static String NOM_DUENO = "ANPA03_NOM_DUENO";
+	public final static String FOTO_PERDIDO = "ANPA03_FOTO";
+	public final static String TELEFONO_PERDIDO = "ANPA03_TELEFONO";
+	public final static String DETALLE_PERDIDO = "ANPA03_DETALLE";
+	public final static String RAZA_PERDIDO = "ANPA03_RAZA";
+	public final static String LATITUD_PERDIDO = "ANPA03_LATITUD";
+	public final static String LONGITUD_PERDIDO = "ANPA03_LONGITUD";
+	public final static String PROVINCIA_PERDIDO = "ANPA03_PROVINCIA";
+	public final static String CANTON_PERDIDO = "ANPA03_CANTON";
+	
+	/*Table Castraciones*/
+	public final static String TABLE_CASTRACIONES = "ANPA04_EVENTO";
+	public final static String NOMBRE_CASTRACION = "ANPA04_NOMBRE_EVENTO";
+	public final static String HORARIO_INICIO_CASTRACION = "ANPA04_HORARIO_INICIO";
+	public final static String DESCRIPCION_CASTRACION = "ANPA04_DESCRIPCION";
+	public final static String DOCTOR_CASTRACION = "ANPA04_DOCTOR";
+	public final static String MONTO_CASTRACION = "ANPA04_MONTO";
+	public final static String DIRECCION_CASTRACION = "ANPA04_DIRECCION";
+	public final static String ENCARGADO_CASTRACION = "ANPA04_ENCARGADO";
+	public final static String TIPO_EVENTO_CASTRACION = "ANPA04_TIPO_EVENTO";
+	public final static String LATITUD_CASTRACION = "ANPA04_LATITUD";
+	public final static String HORARIO_FIN_CASTRACION = "ANPA04_HORARIO_FIN";
+	public final static String LONGITUD_CASTRACION = "ANPA04_LONGITUD";
+	public final static String IMAGE_CASTRACION = "ANPA04_IMAGE";
+	
+	/*Table Preguntas frecuentes*/
+	public final static String TABLE_PREGUNTA_FREC = "ANPA05_FAQ";
+	public final static String DESC_PREGUNTA = "ANPA05_PREGUNTA";
+	public final static String ORDEN_PREGUNTA = "ANPA05_ORDEN";
+	public final static String RESPESTA_PREGUNTA = "ANPA05_RESPUESTA";
+	public final static String TIPO_PREGUNTA = "ANPA05_TIPO";
+	
+	/*Table Noticias*/
+	public final static String TABLE_NOTICIA = "ANPA01_NOTICIAS";
+	public final static String TITULO_NOTICIA = "ANPA01_TITULO";
+	public final static String CONTENIDO_NOTICIA = "ANPA01_CONTENIDO";
+	public final static String IMAGEN_NOTICIA = "ANPA01_IMAGE";
+	
+	/*Table Patrocionios*/
+	public final static String TABLE_PATROCINIO = "ANPA06_PATROCINIOS";
+	public final static String ORDEN_PATROCINIO = "ANPA06_ORDEN";
+	public final static String NOMBRE_PATROCINIO = "ANPA06_NOMBRE";
+	public final static String DESCRIPCION_PATROCINIO = "ANPA06_DESCRIPCION";
+	public final static String URL_PATROCINIO = "ANPA06_URL";
+	public final static String IMAGEN_PATROCINIO = "ANPA06_IMAGEN";
+	
+	/*Table Consejo*/
+	public final static String TABLE_CONSEJO = "ANPA02_CONSEJOS";
+	public final static String DESCR_CONSEJO = "ANPA02_CONSEJO";
+	public final static String AUTOR_CONSEJO = "ANPA02_AUTOR";
+	public final static String ESPECIE_CONSEJO = "ANPA02_ESPECIE";
+	public final static String RAZA_CONSEJO = "ANPA02_RAZA";
+	public final static String ESTRELLA1_CONSEJO = "ANPA02_1ESTRELLAS";
+	public final static String ESTRELLA2_CONSEJO = "ANPA02_2ESTRELLAS";
+	public final static String ESTRELLA3_CONSEJO = "ANPA02_3ESTRELLAS";
+	public final static String ESTRELLA4_CONSEJO = "ANPA02_4ESTRELLAS";
+	public final static String ESTRELLA5_CONSEJO = "ANPA02_5ESTRELLAS";
+	public final static String VOTOS_CONSEJO = "ANPA02_TOTAL_VOTOS";
+	
+	/*Home Activity*/	
 	public final static String TITLE_DESCRIPTION_CONTACTUS = "Contáctenos";
 	public final static String TITLE_DESCRIPTION_DONATION = "Donaciones";
 	public final static String TITLE_DESCRIPTION_ADOPTION = "Centro de adopción";

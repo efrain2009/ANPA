@@ -101,12 +101,13 @@ public class TipsActivity extends AnpaAppFraqmentActivity implements
 		protected Boolean doInBackground(String... param) {
 			try {
 				ParseQuery<ParseObject> query = ParseQuery
-						.getQuery("ANPA02_CONSEJOS");
-				query.selectKeys(Arrays.asList("ANPA02_CONSEJO","ANPA02_AUTOR", "ANPA02_RAZA",
-						"ANPA02_ESPECIE", "ANPA02_1ESTRELLAS",
-						"ANPA02_2ESTRELLAS", "ANPA02_3ESTRELLAS",
-						"ANPA02_4ESTRELLAS", "ANPA02_5ESTRELLAS",
-						"ANPA02_TOTAL_VOTOS"));// selecciona las
+						.getQuery(Constants.TABLE_CONSEJO);
+				query.selectKeys(Arrays.asList(Constants.DESCR_CONSEJO,
+						Constants.AUTOR_CONSEJO, Constants.RAZA_CONSEJO,
+						Constants.ESPECIE_CONSEJO, Constants.ESTRELLA1_CONSEJO,
+						Constants.ESTRELLA2_CONSEJO, Constants.ESTRELLA3_CONSEJO,
+						Constants.ESTRELLA4_CONSEJO, Constants.ESTRELLA5_CONSEJO,
+						Constants.VOTOS_CONSEJO));// selecciona las
 				// columnas a
 				// presentar
 				List<ParseObject> results = query.find();
@@ -114,22 +115,22 @@ public class TipsActivity extends AnpaAppFraqmentActivity implements
 				for (ParseObject tipParse : results) {
 					final String sIdTip = tipParse.getObjectId();
 					final String sConsejo = tipParse
-							.getString("ANPA02_CONSEJO");
-					final String sAutor = tipParse.getString("ANPA02_AUTOR");
-					final Integer raza = tipParse.getInt("ANPA02_RAZA");
-					final Integer especie = tipParse.getInt("ANPA02_ESPECIE");
+							.getString(Constants.DESCR_CONSEJO);
+					final String sAutor = tipParse.getString(Constants.AUTOR_CONSEJO);
+					final Integer raza = tipParse.getInt(Constants.RAZA_CONSEJO);
+					final Integer especie = tipParse.getInt(Constants.ESPECIE_CONSEJO);
 					final Integer unaEstrella = tipParse
-							.getInt("ANPA02_1ESTRELLAS");
+							.getInt(Constants.ESTRELLA1_CONSEJO);
 					final Integer dosEstrella = tipParse
-							.getInt("ANPA02_2ESTRELLAS");
+							.getInt(Constants.ESTRELLA2_CONSEJO);
 					final Integer tresEstrella = tipParse
-							.getInt("ANPA02_3ESTRELLAS");
+							.getInt(Constants.ESTRELLA3_CONSEJO);
 					final Integer cuatroEstrella = tipParse
-							.getInt("ANPA02_4ESTRELLAS");
+							.getInt(Constants.ESTRELLA4_CONSEJO);
 					final Integer cincoEstrella = tipParse
-							.getInt("ANPA02_5ESTRELLAS");
+							.getInt(Constants.ESTRELLA5_CONSEJO);
 					final Integer totalVotos = tipParse
-							.getInt("ANPA02_TOTAL_VOTOS");
+							.getInt(Constants.VOTOS_CONSEJO);
 
 					Tip newTip = new Tip();
 					newTip.set_lId(sIdTip);
