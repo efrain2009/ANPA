@@ -53,21 +53,22 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:paddingTop="20dp"
-                android:weightSum="3" >
+                android:weightSum="1" >
 
                 <TextView
                     android:id="@+id/txt_subtitle_raza_mascota"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:layout_weight="1"
+                    android:layout_weight="0.3"
                     android:text="@string/txt_subtitle_raza_mascota"
                     android:textColor="@color/red" />
 
                 <EditText
                     android:id="@+id/editxt_raza_mascota"
-                    android:layout_width="266dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_weight="0.7"
                     android:ems="10"
                     android:inputType="textMultiLine" />
             </LinearLayout>
@@ -77,21 +78,22 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:paddingTop="20dp"
-                android:weightSum="3" >
+                android:weightSum="1" >
 
                 <TextView
                     android:id="@+id/txt_subtitle_contacto"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:layout_weight="1"
+                    android:layout_weight="0.3"
                     android:text="@string/txt_subtitle_contacto"
                     android:textColor="@color/red" />
 
                 <EditText
                     android:id="@+id/editxt_contacto"
-                    android:layout_width="266dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_weight="0.7"
                     android:ems="10"
                     android:inputType="textMultiLine" />
             </LinearLayout>
@@ -101,21 +103,22 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:paddingTop="20dp"
-                android:weightSum="3" >
+                android:weightSum="1" >
 
                 <TextView
                     android:id="@+id/txt_subtitle_telefono"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:layout_weight="1"
+                    android:layout_weight="0.3"
                     android:text="@string/txt_subtitle_telefono"
                     android:textColor="@color/red" />
 
                 <EditText
                     android:id="@+id/editxt_telefono"
-                    android:layout_width="266dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_weight="0.7"
                     android:ems="10"
                     android:inputType="textMultiLine" />
             </LinearLayout>
@@ -125,21 +128,22 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:paddingTop="20dp"
-                android:weightSum="3" >
+                android:weightSum="1" >
 
                 <TextView
                     android:id="@+id/txt_subtitle_detalle"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:layout_weight="1"
+                    android:layout_weight="0.3"
                     android:text="@string/txt_subtitle_detalle"
                     android:textColor="@color/red" />
 
                 <EditText
                     android:id="@+id/editxt_detail_lost_description"
-                    android:layout_width="266dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_weight="0.7"
                     android:ems="10"
                     android:inputType="textMultiLine" />
             </LinearLayout>
@@ -174,21 +178,22 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:paddingTop="20dp"
-                android:weightSum="3" >
+                android:weightSum="1" >
 
                 <TextView
-                    android:id="@+id/txt_subtitle_short_direction"
+                    android:id="@+id/txt_subtitle_provincia"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:layout_weight="1"
-                    android:text="@string/txt_subtitle_short_direction"
+                    android:layout_weight="0.3"
+                    android:text="@string/txt_subtitle_provincia"
                     android:textColor="@color/red" />
 
                 <EditText
-                    android:id="@+id/editxt_short_direction"
-                    android:layout_width="266dp"
+                    android:id="@+id/editxt_provincia"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_weight="0.7"
                     android:ems="10"
                     android:inputType="textMultiLine" />
             </LinearLayout>
@@ -198,49 +203,27 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:paddingTop="20dp"
-                android:weightSum="3" >
+                android:weightSum="1" >
 
                 <TextView
-                    android:id="@+id/txt_subtitle_short_direction"
+                    android:id="@+id/txt_subtitle_canton"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:layout_weight="1"
-                    android:text="@string/txt_subtitle_short_direction"
+                    android:layout_weight="0.3"
+                    android:text="@string/txt_subtitle_canton"
                     android:textColor="@color/red" />
 
                 <EditText
-                    android:id="@+id/editxt_short_direction"
-                    android:layout_width="266dp"
+                    android:id="@+id/editxt_canton"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_weight="0.7"
                     android:ems="10"
                     android:inputType="textMultiLine" />
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingTop="20dp"
-                android:weightSum="3" >
-
-                <TextView
-                    android:id="@+id/txt_subtitle_short_direction"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_weight="1"
-                    android:text="@string/txt_subtitle_short_direction"
-                    android:textColor="@color/red" />
-
-                <EditText
-                    android:id="@+id/editxt_short_direction"
-                    android:layout_width="266dp"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:inputType="textMultiLine" />
-            </LinearLayout>
-
+           
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"

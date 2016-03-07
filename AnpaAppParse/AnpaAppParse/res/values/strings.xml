@@ -43,15 +43,16 @@
      <string name="txt_disclaimer_lost">*Aclaración: Los siguientes anuncios de mascotas pérdidas son elaborados por la comunidad de usuarios.</string>
      <string name="txt_list_title_lost">Lista de pérdidos cerca de mi</string>
      <string name="txt_detail_lost_title">Aviso</string>
-     <string name="txt_subtitle_nom_mascota">Se llama</string>
-     <string name="txt_subtitle_raza_mascota">Raza</string>
-     <string name="txt_subtitle_contacto">Contacto</string>
-     <string name="txt_subtitle_telefono">Teléfono</string>
-     <string name="txt_subtitle_short_direction">Perdido en</string>
-     <string name="txt_subtitle_detalle">Detalle</string>
+     <string name="txt_subtitle_nom_mascota">Nombre mascota*: </string>
+     <string name="txt_subtitle_raza_mascota">Raza*: </string>
+     <string name="txt_subtitle_contacto">Contacto*: </string>
+     <string name="txt_subtitle_telefono">Teléfono*: </string>
+     <string name="txt_subtitle_short_direction">¿Dónde se pérdio?</string>
+     <string name="txt_subtitle_detalle">Detalles*: </string>
      <string name="txt_add_lost">Encontrar a mi mascota</string>
      <string name="txt_add_lost_photo">Seleccionar Foto</string>
-     
+     <string name="txt_subtitle_canton">Cantón*:</string>
+     <string name="txt_subtitle_provincia">Provincia*:</string>  
      
      
      <!-- Contacts -->
