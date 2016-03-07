@@ -1,13 +1,21 @@
 package com.anpa.anpacr.activities;
 
+import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
+import java.util.Locale;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.location.Address;
+import android.location.Geocoder;
+import android.location.Location;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -21,7 +29,8 @@ import com.parse.ParseObject;
 
 public class AddLostActivity extends AnpaAppFraqmentActivity {
 	
-	EditText editxt_nomMascota, editxt_contacto;
+	EditText editxt_nomMascota, editxt_contacto, editxt_raza_mascota, editxt_telefono, 
+	editxt_detail_lost_description, editxt_provincia, editxt_canton;
 	Button saveLost;
 	ImageView img_detail_lost;
 	
@@ -44,7 +53,18 @@ public class AddLostActivity extends AnpaAppFraqmentActivity {
 			
 			editxt_nomMascota = (EditText) findViewById(R.id.editxt_nom_mascota);
 			
+			editxt_canton = (EditText) findViewById(R.id.editxt_canton);
+			
+			editxt_detail_lost_description = (EditText) findViewById(R.id.editxt_detail_lost_description);
+			
+			editxt_provincia = (EditText) findViewById(R.id.editxt_provincia);
+			
+			editxt_raza_mascota =  (EditText) findViewById(R.id.editxt_raza_mascota);
+			
+			editxt_telefono = (EditText) findViewById(R.id.editxt_telefono);
+			
 			img_detail_lost = (ImageView) findViewById(R.id.img_detail_lost);
+			
 		}
 		
 		/**
@@ -64,10 +84,34 @@ public class AddLostActivity extends AnpaAppFraqmentActivity {
 		private OnClickListener onSave = new OnClickListener() {
 			
 			@Override
-			public void onClick(View v) {
+			public void onClick(View v) {				
+				/*
+				Geocoder gc = new Geocoder(AddLostActivity.this); 
+				 List<Address> list = null;
+				try {
+					list = gc.getFromLocationName("1600 Amphitheatre Parkway, Mountain View, CA", 1);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+
+				 Address address = list.get(0);
+*/
+				  double lat = 0;//address.getLatitude();
+				  double lng = 0; //address.getLongitude();
+				
 				ParseObject objLost = new ParseObject(Constants.TABLE_PERDIDOS);
 				objLost.put(Constants.NOM_MASCOTA, editxt_nomMascota.getText().toString());
 				objLost.put(Constants.NOM_DUENO, editxt_contacto.getText().toString());
+				objLost.put(Constants.FOTO_PERDIDO, (img_detail_lost.toString()).getBytes());
+				objLost.put(Constants.LATITUD_PERDIDO, Double.valueOf(lat));
+				objLost.put(Constants.LATITUD_PERDIDO,Double.valueOf(lng));
+				objLost.put(Constants.PROVINCIA_PERDIDO, editxt_provincia.getText().toString());
+				objLost.put(Constants.CANTON_PERDIDO, editxt_canton.getText().toString());
+				objLost.put(Constants.RAZA_PERDIDO, editxt_raza_mascota.getText().toString());
+				objLost.put(Constants.TELEFONO_PERDIDO, editxt_telefono.getText().toString());
+				objLost.put(Constants.DETALLE_PERDIDO, editxt_detail_lost_description.getText().toString());
+				objLost.put(Constants.PROVINCIA_PERDIDO, editxt_provincia.getText().toString());
 				objLost.saveInBackground();	
 				alertDialog ();
 				saveLost.setEnabled(false);
