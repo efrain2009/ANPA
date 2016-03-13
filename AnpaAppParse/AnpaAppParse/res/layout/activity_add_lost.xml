@@ -64,13 +64,12 @@
                     android:text="@string/txt_subtitle_raza_mascota"
                     android:textColor="@color/red" />
 
-                <EditText
-                    android:id="@+id/editxt_raza_mascota"
+                  <Spinner
+                    android:id="@+id/spn_razaLost_selector"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.7"
-                    android:ems="10"
-                    android:inputType="textMultiLine" />
+                    android:background="@drawable/selector_spinner_title_style" />
             </LinearLayout>
 
             <LinearLayout
@@ -189,13 +188,12 @@
                     android:text="@string/txt_subtitle_provincia"
                     android:textColor="@color/red" />
 
-                <EditText
-                    android:id="@+id/editxt_provincia"
+                <Spinner
+                    android:id="@+id/spn_provincia_selector"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.7"
-                    android:ems="10"
-                    android:inputType="textMultiLine" />
+                    android:background="@drawable/selector_spinner_title_style" />
             </LinearLayout>
 
             <LinearLayout
@@ -214,16 +212,14 @@
                     android:text="@string/txt_subtitle_canton"
                     android:textColor="@color/red" />
 
-                <EditText
-                    android:id="@+id/editxt_canton"
+                <Spinner
+                    android:id="@+id/spn_canton_selector"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.7"
-                    android:ems="10"
-                    android:inputType="textMultiLine" />
+                    android:background="@drawable/selector_spinner_title_style" />
             </LinearLayout>
 
-           
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
