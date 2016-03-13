@@ -5,13 +5,14 @@ import java.util.Arrays;
 
 public class Constants {
 	
-	 public static final String PACKAGE_NAME =
-		        "com.google.android.gms.location.sample.locationaddress";
-		    public static final String RECEIVER = PACKAGE_NAME + ".RECEIVER";
-		    public static final String RESULT_DATA_KEY = PACKAGE_NAME +
-		        ".RESULT_DATA_KEY";
-		    public static final String LOCATION_DATA_EXTRA = PACKAGE_NAME +
-		        ".LOCATION_DATA_EXTRA";
+	
+		    public static final String ERROR_ACTIVAR_GPS = "ERROR ACTIVAR GPS";
+		    public static final int PICK_LOCATION = 1;
+		    public static final int SET_GPS = 1;
+		    public static final String ERROR_LOGIN_CONEXION = "";
+		    
+		    public static final String LATITUD_COSTA_RICA ="9.748916999999999";
+		    public static final String LONGITUD_COSTA_RICA="-83.75342799999999";
 		
 
 	/*Table Perdidos*/
@@ -23,7 +24,7 @@ public class Constants {
 	public final static String DETALLE_PERDIDO = "ANPA03_DETALLE";
 	public final static String RAZA_PERDIDO = "ANPA03_RAZA";
 	public final static String LATITUD_PERDIDO = "ANPA03_LATITUD";
-	public final static String LONGITUD_PERDIDO = "ANPA03_LONGITUD";
+	public final static String LONGITUD_PERDIDO = "ANPA03_LONGITUDE";
 	public final static String PROVINCIA_PERDIDO = "ANPA03_PROVINCIA";
 	public final static String CANTON_PERDIDO = "ANPA03_CANTON";
 	
