@@ -14,41 +14,40 @@
             android:layout_height="wrap_content"
             android:orientation="vertical" >
 
+            <TextView
+                android:id="@+id/txt_raza_consejo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:textColor="@color/red"
+                android:textSize="14sp" />
+            
+            <TextView
+                    android:id="@+id/txt_detail_consejo"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="2"
+                    android:gravity="top"
+                    android:textColor="@color/black" />
+
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:paddingTop="20dp" >
 
-                
- 				<TextView
+                <TextView
                     android:id="@+id/txt_detail_raza"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="@string/txt_breed_selected"
                     android:layout_weight="1"
                     android:textColor="@color/red" />
-                
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingTop="20dp"
-                android:weightSum="3" >
-
-                
-                <TextView
-                    android:id="@+id/txt_detail_consejo"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_weight="2"
-                    android:gravity="top"
-                    android:textColor="@color/black" />
-            </LinearLayout>
+     
+                        
 
             <LinearLayout
                 android:layout_width="fill_parent"
@@ -75,21 +74,23 @@
                     android:textColor="@color/black" />
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_gravity="center_vertical"
-                android:weightSum="1" >
+              <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="10dp" >
 
                 <Button
                     android:id="@+id/btn_add_tip"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:onClick="onBuyPressed"
-                    android:text="@string/bt_buton_add_tip" />
-            </LinearLayout>
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:background="@color/red"
+                    android:padding="10dp"
+                    android:text="@string/txt_add_tip"
+                    android:textColor="@android:color/white"
+                    android:textSize="14sp" />
+            </RelativeLayout>
         </LinearLayout>
     </ScrollView>
 

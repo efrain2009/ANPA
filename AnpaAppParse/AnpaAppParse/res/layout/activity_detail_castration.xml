@@ -10,8 +10,8 @@
         android:layout_height="match_parent" >
 
         <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:orientation="vertical" >
 
             <LinearLayout
@@ -52,185 +52,196 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingTop="20dp"
-                android:weightSum="3" >
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/item_semitransparent_child"
+                android:orientation="vertical"
+                android:paddingBottom="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp" >
 
-                <TextView
-                    android:id="@+id/txt_subtitle_castration_date"
-                    android:layout_width="0dp"
+                <LinearLayout
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_weight="1"
-                    android:text="@string/txt_subtitle_castration_date"
-                    android:textColor="@color/red" />
+                    android:orientation="horizontal"
+                    android:paddingTop="20dp"
+                    android:weightSum="3" >
 
-                <TextView
-                    android:id="@+id/txt_detail_castration_date"
-                    android:layout_width="0dp"
+                    <TextView
+                        android:id="@+id/txt_subtitle_castration_date"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_weight="1"
+                        android:text="@string/txt_subtitle_castration_date"
+                        android:textColor="@color/red" />
+
+                    <TextView
+                        android:id="@+id/txt_detail_castration_date"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_weight="2"
+                        android:textColor="@color/black" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_weight="2"
-                    android:textColor="@color/black" />
+                    android:orientation="horizontal"
+                    android:paddingTop="20dp"
+                    android:weightSum="3" >
+
+                    <TextView
+                        android:id="@+id/txt_subtitle_schedule"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_weight="1"
+                        android:text="@string/txt_subtitle_schedule"
+                        android:textColor="@color/red" />
+
+                    <TextView
+                        android:id="@+id/txt_detail_castration_schedule"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_weight="2"
+                        android:textColor="@color/black" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="20dp"
+                    android:weightSum="3" >
+
+                    <TextView
+                        android:id="@+id/txt_subtitle_doctor"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_weight="1"
+                        android:text="@string/txt_subtitle_doctor"
+                        android:textColor="@color/red" />
+
+                    <TextView
+                        android:id="@+id/txt_detail_castration_doctor"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_weight="2"
+                        android:textColor="@color/black" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="20dp"
+                    android:weightSum="3" >
+
+                    <TextView
+                        android:id="@+id/txt_subtitle_attendant"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_weight="1"
+                        android:text="@string/txt_subtitle_attendant"
+                        android:textColor="@color/red" />
+
+                    <TextView
+                        android:id="@+id/txt_detail_castration_attendant"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_weight="2"
+                        android:textColor="@color/black" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="20dp"
+                    android:weightSum="3" >
+
+                    <TextView
+                        android:id="@+id/txt_subtitle_amount"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_weight="1"
+                        android:text="@string/txt_subtitle_amount"
+                        android:textColor="@color/red" />
+
+                    <TextView
+                        android:id="@+id/txt_detail_castration_amount"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_weight="2"
+                        android:textColor="@color/black" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="20dp"
+                    android:weightSum="3" >
+
+                    <TextView
+                        android:id="@+id/txt_subtitle_castration_info"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_weight="1"
+                        android:text="@string/txt_subtitle_info"
+                        android:textColor="@color/red" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="3" >
+
+                    <TextView
+                        android:id="@+id/txt_detail_castration_space"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_weight="1"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/txt_detail_castration_description"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_weight="2"
+                        android:textColor="@color/black" />
+                </LinearLayout>
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingTop="20dp"
-                android:weightSum="3" >
-
-                <TextView
-                    android:id="@+id/txt_subtitle_schedule"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_weight="1"
-                    android:text="@string/txt_subtitle_schedule"
-                    android:textColor="@color/red" />
-
-                <TextView
-                    android:id="@+id/txt_detail_castration_schedule"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_weight="2"
-                    android:textColor="@color/black" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingTop="20dp"
-                android:weightSum="3" >
-
-                <TextView
-                    android:id="@+id/txt_subtitle_doctor"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_weight="1"
-                    android:text="@string/txt_subtitle_doctor"
-                    android:textColor="@color/red" />
-
-                <TextView
-                    android:id="@+id/txt_detail_castration_doctor"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_weight="2"
-                    android:textColor="@color/black" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingTop="20dp"
-                android:weightSum="3" >
-
-                <TextView
-                    android:id="@+id/txt_subtitle_attendant"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_weight="1"
-                    android:text="@string/txt_subtitle_attendant"
-                    android:textColor="@color/red" />
-
-                <TextView
-                    android:id="@+id/txt_detail_castration_attendant"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_weight="2"
-                    android:textColor="@color/black" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingTop="20dp"
-                android:weightSum="3" >
-
-                <TextView
-                    android:id="@+id/txt_subtitle_amount"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_weight="1"
-                    android:text="@string/txt_subtitle_amount"
-                    android:textColor="@color/red" />
-
-                <TextView
-                    android:id="@+id/txt_detail_castration_amount"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_weight="2"
-                    android:textColor="@color/black" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingTop="20dp"
-                android:weightSum="3" >
-
-                <TextView
-                    android:id="@+id/txt_subtitle_castration_info"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_weight="1"
-                    android:text="@string/txt_subtitle_info"
-                    android:textColor="@color/red" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="3" >
-
-                <TextView
-                    android:id="@+id/txt_detail_castration_space"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_weight="1"
-                    android:textColor="@color/black" />
-
-                <TextView
-                    android:id="@+id/txt_detail_castration_description"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_weight="2"
-                    android:textColor="@color/black" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_gravity="center_vertical"
-                android:weightSum="1" >
+             <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="10dp" >
 
                 <Button
                     android:id="@+id/btn_send_google_maps"
-                    android:layout_width="wrap_content"
+                   android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:background="@color/red"
                     android:onClick="onBuyPressed"
+                    android:padding="10dp"
                     android:text="@string/bt_buton_How_arrive" />
-            </LinearLayout>
+             </RelativeLayout>
         </LinearLayout>
     </ScrollView>
 
