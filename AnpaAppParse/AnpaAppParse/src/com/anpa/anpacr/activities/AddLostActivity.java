@@ -169,8 +169,8 @@ public class AddLostActivity extends AnpaAppFraqmentActivity {
 				*/
 				objLost.put(Constants.LATITUD_PERDIDO, _sLatitud);
 				objLost.put(Constants.LONGITUD_PERDIDO, _sLongitud);
-				objLost.put(Constants.PROVINCIA_PERDIDO, 1);
-				objLost.put(Constants.CANTON_PERDIDO, 1);
+				objLost.put(Constants.PROVINCIA_PERDIDO, Integer.valueOf(provinciaSpinner.getSelectedItem().toString()));
+				objLost.put(Constants.CANTON_PERDIDO, Integer.valueOf(cantonSpinner.getSelectedItem().toString()));
 				objLost.put(Constants.RAZA_PERDIDO, _sRaza);
 				objLost.put(Constants.TELEFONO_PERDIDO, editxt_telefono.getText().toString());
 				objLost.put(Constants.DETALLE_PERDIDO, editxt_detail_lost_description.getText().toString());

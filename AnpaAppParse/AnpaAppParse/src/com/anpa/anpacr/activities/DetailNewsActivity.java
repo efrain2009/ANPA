@@ -1,5 +1,8 @@
 package com.anpa.anpacr.activities;
 
+import java.text.SimpleDateFormat;
+import java.util.Locale;
+
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -30,8 +33,12 @@ public class DetailNewsActivity extends AnpaAppFraqmentActivity {
 			TextView txt_detail_news_description = (TextView) findViewById(R.id.txt_detail_news_description);
 			txt_detail_news_description.setText(value.get_sdescription());
 
+			SimpleDateFormat formatoFecha = 
+				    new SimpleDateFormat("EEEE d 'de' MMMM 'de' yyyy", new Locale("es", "ES"));
+			
+			String fecha = formatoFecha.format(value.get_dDate());
 			TextView txt_detail_news_date = (TextView) findViewById(R.id.txt_detail_news_date);
-			txt_detail_news_date.setText(value.get_sDate());
+			txt_detail_news_date.setText(fecha);
 
 			ImageView img_detail_news = (ImageView) findViewById(R.id.img_detail_news);
 			Bitmap bmpImage = BitmapFactory.decodeByteArray(

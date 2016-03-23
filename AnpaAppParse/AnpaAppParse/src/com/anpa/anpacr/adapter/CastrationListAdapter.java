@@ -56,7 +56,7 @@ public class CastrationListAdapter extends BaseAdapter{
 		Castration item = castrationList.get(position);
 		
 		TextView txt_title_castration = (TextView) view.findViewById(R.id.txt_title_castration);
-		txt_title_castration.setText(item.get_snombre());
+		txt_title_castration.setText(item.get_sdireccion());
 		
 		TextView txt_date_inicio = (TextView) view.findViewById(R.id.txt_format_date_inicio);
 		txt_date_inicio.setText(item.get_sDateInicio());

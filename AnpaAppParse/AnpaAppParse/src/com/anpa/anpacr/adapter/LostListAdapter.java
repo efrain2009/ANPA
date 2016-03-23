@@ -61,7 +61,7 @@ public class LostListAdapter extends BaseAdapter{
 		Lost item = lostList.get(position);
 		
 		TextView txt_title_lost = (TextView) view.findViewById(R.id.txt_title_lost);
-		txt_title_lost.setText(item.get_snombreDueno());
+		txt_title_lost.setText(item.get_snombreMascota());
 				
 		TextView txt_short_direction_lost = (TextView) view.findViewById(R.id.txt_short_direction_lost);		
 		

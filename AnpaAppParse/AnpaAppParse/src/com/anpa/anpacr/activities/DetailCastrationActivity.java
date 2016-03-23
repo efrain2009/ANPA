@@ -1,5 +1,8 @@
 package com.anpa.anpacr.activities;
 
+import java.text.SimpleDateFormat;
+import java.util.Locale;
+
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -33,9 +36,12 @@ public class DetailCastrationActivity extends SherlockFragmentActivity {
 
 			TextView txt_detail_castration_description = (TextView) findViewById(R.id.txt_detail_castration_description);
 			txt_detail_castration_description.setText(value.get_sdescription());
+			
+			SimpleDateFormat dthora = new SimpleDateFormat(
+					"hh:mm a");		
 
 			TextView txt_detail_castration_schedule = (TextView) findViewById(R.id.txt_detail_castration_schedule);
-			String horario = value.get_sDateInicio().substring(10, 19) +" a " + value.get_sDateFin().substring(10, 19);
+			String horario = dthora.format(value.get_dDateInicio()) +" a " + dthora.format(value.get_dDateFin());
 			txt_detail_castration_schedule.setText(horario);
 			
 			TextView txt_detail_castration_doctor = (TextView) findViewById(R.id.txt_detail_castration_doctor);
@@ -47,9 +53,12 @@ public class DetailCastrationActivity extends SherlockFragmentActivity {
 			TextView txt_detail_castration_amount = (TextView) findViewById(R.id.txt_detail_castration_amount);
 			String monto =  "¢ " + value.get_bgdMonto().toString();
 			txt_detail_castration_amount.setText(monto);
+						
+			SimpleDateFormat formatoFecha = 
+				    new SimpleDateFormat("EEEE d 'de' MMMM 'de' yyyy", new Locale("es", "ES"));
 			
 			TextView txt_detail_castration_date = (TextView) findViewById(R.id.txt_detail_castration_date);
-			String fecha = value.get_sDateInicio().substring(0, 10);
+			String fecha = formatoFecha.format(value.get_dDateInicio());
 			txt_detail_castration_date.setText(fecha);
 
 			if (value.get_bImagen() != null) {

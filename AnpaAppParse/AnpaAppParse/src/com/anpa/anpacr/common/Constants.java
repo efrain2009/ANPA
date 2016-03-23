@@ -1,7 +1,5 @@
 package com.anpa.anpacr.common;
 
-import java.util.Arrays;
-
 
 public class Constants {
 	
@@ -114,6 +112,8 @@ public class Constants {
 	public static final String TITLE_LAST_LOST = "Ultimamente";
 	public static final String TITLE_LOST = "Perdidos";
 	public final static String ID_OBJ_DETAIL_LIST = "lost_objects";
+	public final static String CONSEJOS_PARA = "Consejos para: ";
+	
 	
 	public static final String ANPA_PHONE_PRIM = "+50640002672";
 	public static final String ANPA_PHONE_SEC = "+50622252722";

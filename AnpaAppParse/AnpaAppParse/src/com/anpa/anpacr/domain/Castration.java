@@ -1,6 +1,7 @@
 package com.anpa.anpacr.domain;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class Castration implements Serializable{
 
@@ -19,6 +20,8 @@ public class Castration implements Serializable{
 	private String _sEncargado;
 	private String _sDateInicio;
 	private String _sDateFin;
+	private Date _dDateInicio;
+	private Date _dDateFin;
 	private String _sDateFormat;
 	private Integer _sTipo;
 	private String _sDate;
@@ -180,8 +183,21 @@ public class Castration implements Serializable{
 	public void set_sDateFormat(String _sDateFormat) {
 		this._sDateFormat = _sDateFormat;
 	}
-	
-	
 
+	public Date get_dDateInicio() {
+		return _dDateInicio;
+	}
+
+	public void set_dDateInicio(Date _dDateInicio) {
+		this._dDateInicio = _dDateInicio;
+	}
+
+	public Date get_dDateFin() {
+		return _dDateFin;
+	}
+
+	public void set_dDateFin(Date _dDateFin) {
+		this._dDateFin = _dDateFin;
+	}
 }
 

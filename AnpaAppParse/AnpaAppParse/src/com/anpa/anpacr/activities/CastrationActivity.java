@@ -177,7 +177,6 @@ public class CastrationActivity extends AnpaAppFraqmentActivity implements
 							.getDate(Constants.HORARIO_INICIO_CASTRACION);
 					final Date dFinDate = CastrationParse
 							.getDate(Constants.HORARIO_FIN_CASTRACION);
-
 					ParseFile imageFile = CastrationParse
 							.getParseFile(Constants.IMAGE_CASTRACION);
 
@@ -185,14 +184,20 @@ public class CastrationActivity extends AnpaAppFraqmentActivity implements
 					newCastration.set_lId(sIdCastration);
 					newCastration.set_bgdMonto(monto);
 					newCastration.set_bImagen(imageFile.getData());
-					newCastration.set_sDate(dCreationDate.toString());
-					SimpleDateFormat dt = new SimpleDateFormat(
-							"dd/MM/yyyy hh:mm aaa");
-					String inicioDate = dt.format(dInicioDate);
-					String dateFinal = dt.format(dFinDate);
+					newCastration.set_sDate(dCreationDate.toString());					
+					
+					SimpleDateFormat dtfecha = new SimpleDateFormat(
+							"dd/MM/yyyy");
+					SimpleDateFormat dthora = new SimpleDateFormat(
+							"hh:mm a");				
+					
+					String inicioDate = dtfecha.format(dInicioDate) + " - " + dthora.format(dInicioDate);
+					String dateFinal =  dtfecha.format(dFinDate) + " - " + dthora.format(dFinDate);
 
 					newCastration.set_sDateFin(dateFinal);
 					newCastration.set_sDateInicio(inicioDate);
+					newCastration.set_dDateInicio(dInicioDate);
+					newCastration.set_dDateFin(dFinDate);
 					newCastration.set_sdescription(sDescripcion);
 					newCastration.set_sdoctor(sDoctor);
 					newCastration.set_sLatitud(latitud);

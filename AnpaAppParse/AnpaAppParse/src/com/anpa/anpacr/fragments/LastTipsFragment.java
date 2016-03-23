@@ -2,7 +2,6 @@ package com.anpa.anpacr.fragments;
 
 import java.util.List;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -36,35 +35,30 @@ public class LastTipsFragment extends SherlockFragment{
 	 */
 		@Override
 		public View onCreateView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-			View view = inflater.inflate(R.layout.fragment_list_tips, container, false);
-			
-			lv_tips = (ListView) view.findViewById(R.id.list_tips);
-			
-			//Carga los datos obtenidos del activity, llamando al interface del activity
-			 List<Tip> tiplist = onLoadListListener.loadList();
-			
-			tipAdapter = new TipListAdapter(getActivity(), tiplist);
-			lv_tips.setAdapter(tipAdapter);
-			lv_tips.setOnItemClickListener(onclickListTip);			
-
-			return view;
-		}
-		
-		@Override
-		public void onAttach(Activity activity){
-			super.onAttach(activity);
+			View view = inflater.inflate(R.layout.activity_list_tip, container, false);
 			/**
 			 * Se instancia el interface
 			 */
 			try {
-	            onLoadListListener = (OnLoadListListener) activity;
+	            onLoadListListener = (OnLoadListListener) getActivity();
 	        } catch (ClassCastException e) {
-	            throw new ClassCastException(activity.toString()
+	            throw new ClassCastException(getActivity().toString()
 	                    + " must implement OnLoadListListener");
 	        }
+			
+			lv_tips = (ListView) view.findViewById(R.id.list_tips);
+			
+			//Carga los datos obtenidos del activity, llamando al interface del activity
+			 List<Tip> tipsList = onLoadListListener.loadList();
+			
+			tipAdapter = new TipListAdapter(getActivity(), tipsList);
+			lv_tips.setAdapter(tipAdapter);
+			lv_tips.setOnItemClickListener(onclickListTips);
+
+			return view;
 		}
 		
-	private OnItemClickListener onclickListTip = new OnItemClickListener() {
+	private OnItemClickListener onclickListTips = new OnItemClickListener() {
 		@Override
 		public void onItemClick(AdapterView<?> parent, View view, int position,
 				long id) {

@@ -144,8 +144,8 @@ LastNewsFragment.OnLoadListListener{
 					SimpleDateFormat dt = new SimpleDateFormat(
 							"dd/MM/yyyy hh:mm aaa");
 					String date = dt.format(dCreationDate);
-				
-					News newNews = new News(sIdNews, sTitle, sContent, date, imageFile.getData());
+
+					News newNews = new News(sIdNews, sTitle, sContent, date, imageFile.getData(), dCreationDate);
 					newsList.add(newNews);
 				}				
 			} catch (ParseException e) {
