@@ -4,10 +4,12 @@ import java.util.List;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.anpa.anpacr.R;
@@ -56,14 +58,52 @@ public class TipListAdapter extends BaseAdapter{
 		Tip item = tipList.get(position);
 		
 		TextView txt_title_tip = (TextView) view.findViewById(R.id.txt_title_consejo);
-		txt_title_tip.setText(item.get_sConsejo());		
+		txt_title_tip.setText(item.get_sConsejo());
 		String txtPreviewConsejo = item.get_sConsejo();
+		int ratingStars = item.get_iTotalVotos();
 		if(txtPreviewConsejo.length() > 30)
 			txtPreviewConsejo = txtPreviewConsejo.substring(0,30) + "...";
 		txt_title_tip.setText(txtPreviewConsejo);
 		
 		TextView txt_autor = (TextView) view.findViewById(R.id.txt_autor);
 		txt_autor.setText("Por: ".concat(item.get_sAuthor()));
+		
+		//Huellas de calificación
+		ImageView img_rating1 = (ImageView)view.findViewById(R.id.rating_star_1);
+		ImageView img_rating2 = (ImageView)view.findViewById(R.id.rating_star_2);
+		ImageView img_rating3 = (ImageView)view.findViewById(R.id.rating_star_3);
+		ImageView img_rating4 = (ImageView)view.findViewById(R.id.rating_star_4);
+		ImageView img_rating5 = (ImageView)view.findViewById(R.id.rating_star_5);
+		
+		switch (ratingStars) {
+		case 0:
+			img_rating1.setImageBitmap(BitmapFactory.decodeResource(activity.getResources(), R.drawable.ic_footprint_gray));
+			img_rating2.setImageBitmap(BitmapFactory.decodeResource(activity.getResources(), R.drawable.ic_footprint_gray));
+			img_rating3.setImageBitmap(BitmapFactory.decodeResource(activity.getResources(), R.drawable.ic_footprint_gray));
+			img_rating4.setImageBitmap(BitmapFactory.decodeResource(activity.getResources(), R.drawable.ic_footprint_gray));
+			img_rating5.setImageBitmap(BitmapFactory.decodeResource(activity.getResources(), R.drawable.ic_footprint_gray));
+			break;
+		case 1:
+			img_rating2.setImageBitmap(BitmapFactory.decodeResource(activity.getResources(), R.drawable.ic_footprint_gray));
+			img_rating3.setImageBitmap(BitmapFactory.decodeResource(activity.getResources(), R.drawable.ic_footprint_gray));
+			img_rating4.setImageBitmap(BitmapFactory.decodeResource(activity.getResources(), R.drawable.ic_footprint_gray));
+			img_rating5.setImageBitmap(BitmapFactory.decodeResource(activity.getResources(), R.drawable.ic_footprint_gray));
+			break;
+		case 2:
+			img_rating3.setImageBitmap(BitmapFactory.decodeResource(activity.getResources(), R.drawable.ic_footprint_gray));
+			img_rating4.setImageBitmap(BitmapFactory.decodeResource(activity.getResources(), R.drawable.ic_footprint_gray));
+			img_rating5.setImageBitmap(BitmapFactory.decodeResource(activity.getResources(), R.drawable.ic_footprint_gray));
+			break;
+		case 3:
+			img_rating4.setImageBitmap(BitmapFactory.decodeResource(activity.getResources(), R.drawable.ic_footprint_gray));
+			img_rating5.setImageBitmap(BitmapFactory.decodeResource(activity.getResources(), R.drawable.ic_footprint_gray));
+			break;
+		case 4:
+			img_rating5.setImageBitmap(BitmapFactory.decodeResource(activity.getResources(), R.drawable.ic_footprint_gray));
+			break;
+		default:
+			break;
+		}
 		
 		return view;
 	}

@@ -116,12 +116,10 @@ public class TipsActivity extends AnpaAppFraqmentActivity{
 					newTip.set_sAuthor(sAutor);
 					newTip.set_iRaza(raza);
 					newTip.set_iEspecie(especie);
-					newTip.set_i1Estrella(unaEstrella);
-					newTip.set_i2Estrella(dosEstrella);
-					newTip.set_i3Estrella(tresEstrella);
-					newTip.set_i4Estrella(cuatroEstrella);
-					newTip.set_i5Estrella(cincoEstrella);
-					newTip.set_iTotalVotos(totalVotos);
+
+					//Calcula la cantidad de estrellas que tiene el consejo
+					int rating = (5 * cincoEstrella + 4 * cuatroEstrella + 3 * tresEstrella + 2 * dosEstrella + 1 * unaEstrella) / totalVotos;
+					newTip.set_iTotalVotos(rating);
 
 					tipsList.add(newTip);
 				}

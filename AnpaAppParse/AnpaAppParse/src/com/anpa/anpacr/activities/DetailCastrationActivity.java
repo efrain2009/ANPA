@@ -3,18 +3,32 @@ package com.anpa.anpacr.activities;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
 
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.location.Location;
+import android.location.LocationManager;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.Settings;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.anpa.anpacr.R;
 import com.anpa.anpacr.common.Constants;
 import com.anpa.anpacr.domain.Castration;
+import com.anpa.anpacr.domain.Gps;
 
 public class DetailCastrationActivity extends SherlockFragmentActivity {
+	private LocationManager _locationManager;
+	String _sLatitude, _sLongitude;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -23,6 +37,8 @@ public class DetailCastrationActivity extends SherlockFragmentActivity {
 		//Btn de back (anterior)
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 		getSupportActionBar().setTitle(Constants.TITLE_DESCRIPTION_CASTRATION);
+		Button btnGoLocation = (Button) findViewById(R.id.btn_send_google_maps);
+		btnGoLocation.setOnClickListener(onGoLocation);
 		
 		Bundle extras = getIntent().getExtras();
 		if (extras != null) {
@@ -36,6 +52,9 @@ public class DetailCastrationActivity extends SherlockFragmentActivity {
 
 			TextView txt_detail_castration_description = (TextView) findViewById(R.id.txt_detail_castration_description);
 			txt_detail_castration_description.setText(value.get_sdescription());
+			
+			_sLatitude = value.get_sLatitud();
+			_sLongitude = value.get_sLongitud();
 			
 			SimpleDateFormat dthora = new SimpleDateFormat(
 					"hh:mm a");		
@@ -68,6 +87,47 @@ public class DetailCastrationActivity extends SherlockFragmentActivity {
 				img_detail_castration.setImageBitmap(bmpNewsDetail);
 			}
 		}
+		_locationManager= (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
 	}
+	
+	/*
+	 * Listener del botón de ir a la ubicación de la castración
+	 */
+	private OnClickListener onGoLocation = new OnClickListener() {
+		
+		@Override
+		public void onClick(View v) {
+			comprobarGPS();
+		}
+	}; 
 
+	/**
+     * Verifica que el GPS esté activado y si lo está, abre el navegador de mapas.
+     */
+    public void comprobarGPS(){
+        _locationManager = Gps.getInstance().revisarGPS(this, _locationManager);
+        if(_locationManager != null){
+            Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+            startActivityForResult(intent, Constants.SET_GPS);
+        }
+        else{
+        	if(!_sLongitude.equals("0") && !_sLatitude.equals("0")){
+	            _locationManager= (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
+	            Location respuestaLocalizacion = Gps.getInstance().obtenerGeolocalizacion(_locationManager);
+	            if(respuestaLocalizacion != null){
+	                String uri = "geo:" + _sLatitude + ","
+	                        + _sLongitude + "?q=" + _sLatitude
+	                        + "," + _sLongitude;
+	                startActivity(new Intent(android.content.Intent.ACTION_VIEW,
+	                        Uri.parse(uri)));
+	            }
+	            else{
+	                Toast.makeText(getApplicationContext(), "Ha ocurrido un error obteniendo tu ubicación", Toast.LENGTH_SHORT).show();
+	            }
+        	}
+            else{
+                Toast.makeText(getApplicationContext(), "No tenemos la ubicación de este lugar :(", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
 }

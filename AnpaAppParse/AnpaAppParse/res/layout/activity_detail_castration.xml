@@ -238,7 +238,6 @@
                     android:layout_alignParentBottom="true"
                     android:layout_centerHorizontal="true"
                     android:background="@color/red"
-                    android:onClick="onBuyPressed"
                     android:padding="10dp"
                     android:text="@string/bt_buton_How_arrive" />
              </RelativeLayout>

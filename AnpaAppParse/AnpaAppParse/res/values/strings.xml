@@ -27,7 +27,7 @@
      <string name="bt_buton_How_arrive">¿Cómo llegar?</string>
     
      <!-- Tips --> 
-     <string name="txt_subtitle_autor">Por</string>
+     <string name="txt_subtitle_autor">Autor:</string>
      <string name="txt_breed_author">Por</string>     
      <string name="txt_public_fb">Compartir en Facebook</string>
      <string name="txt_add_tip">Agregar consejo</string>
@@ -40,6 +40,7 @@
      <string name="txt_add_tip">Agregar un consejo</string>
      <string name="txt_disclaimer">*Aclaración: Los siguientes consejos no son elaborados por personal de ANPA, sino por la comunidad de usuarios. Queda a tu juicio el ponerlos en práctica o no.</string>
      <string name="txt_agrega_consejo">Agrega tu consejo</string>
+     <string name="txt_tip_opinion">¿Qué te pareció este consejo?</string>
      
      
      <!-- Lost -->  

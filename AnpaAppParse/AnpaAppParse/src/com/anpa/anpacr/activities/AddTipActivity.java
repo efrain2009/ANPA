@@ -174,8 +174,6 @@ public class AddTipActivity extends AnpaAppFraqmentActivity {
         SpinnerAdapter adapterRaces = new SpinnerAdapter(AddTipActivity.this,
 	            R.layout.spinner_item,
 	            speciesList);
-        raceSpinner.setAdapter(adapterRaces);
-		
+        raceSpinner.setAdapter(adapterRaces);	
     }
-
 }
