@@ -40,10 +40,12 @@ public class DetailNewsActivity extends AnpaAppFraqmentActivity {
 			TextView txt_detail_news_date = (TextView) findViewById(R.id.txt_detail_news_date);
 			txt_detail_news_date.setText(fecha);
 
-			ImageView img_detail_news = (ImageView) findViewById(R.id.img_detail_news);
-			Bitmap bmpImage = BitmapFactory.decodeByteArray(
-				      value.get_bImagen(), 0, value.get_bImagen().length);
-			img_detail_news.setImageBitmap(bmpImage);
+			if(value.get_bImagen() != null){
+				ImageView img_detail_news = (ImageView) findViewById(R.id.img_detail_news);
+				Bitmap bmpImage = BitmapFactory.decodeByteArray(
+					      value.get_bImagen(), 0, value.get_bImagen().length);
+				img_detail_news.setImageBitmap(bmpImage);
+			}
 		}
 	}
 

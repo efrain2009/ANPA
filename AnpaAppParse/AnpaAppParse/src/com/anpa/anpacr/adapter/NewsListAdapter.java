@@ -69,10 +69,12 @@ public class NewsListAdapter extends BaseAdapter{
 			txtPreviewDescrip = txtPreviewDescrip.substring(0,30) + "...";
 		txt_descrip_news.setText(txtPreviewDescrip);
 		
-		ImageView img_news = (ImageView) view.findViewById(R.id.img_news);
-		Bitmap bmpImage = BitmapFactory.decodeByteArray(
-			      item.get_bImagen(), 0, item.get_bImagen().length);
-		img_news.setImageBitmap(bmpImage);
+		if(item.get_bImagen() != null){
+			ImageView img_news = (ImageView) view.findViewById(R.id.img_news);
+			Bitmap bmpImage = BitmapFactory.decodeByteArray(
+				      item.get_bImagen(), 0, item.get_bImagen().length);
+			img_news.setImageBitmap(bmpImage);
+		}
 		
 		return view;
 	}

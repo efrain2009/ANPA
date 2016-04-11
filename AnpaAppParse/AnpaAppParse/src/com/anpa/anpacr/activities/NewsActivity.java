@@ -6,7 +6,12 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
@@ -16,6 +21,7 @@ import android.widget.Toast;
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.ActionBar.Tab;
 import com.anpa.anpacr.R;
+import com.anpa.anpacr.app42.AsyncApp42ServiceApi;
 import com.anpa.anpacr.common.Constants;
 import com.anpa.anpacr.domain.FreqAnswer;
 import com.anpa.anpacr.domain.News;
@@ -27,15 +33,23 @@ import com.parse.ParseException;
 import com.parse.ParseFile;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
+import com.shephertz.app42.paas.sdk.android.App42Exception;
+import com.shephertz.app42.paas.sdk.android.storage.Storage;
 
 public class NewsActivity extends AnpaAppFraqmentActivity implements 
 FreqAnswerFragment.OnLoadListListenerFreqAnswerNews,
 SponsorFragment.OnLoadSponsorListListener,
-LastNewsFragment.OnLoadListListener{
+LastNewsFragment.OnLoadListListener,
+AsyncApp42ServiceApi.App42StorageServiceListener{
 	
 	private List<News> newsList;
 	private List<FreqAnswer> freqAnswerList;
 	private List<Sponsor> sponsorList;
+	
+	//App42:
+	private AsyncApp42ServiceApi asyncService;
+	private String docId = "";
+	private ProgressDialog progressDialog;
 	
 	public static final String TAG_NEWS = "noticias";
 	
@@ -43,6 +57,8 @@ LastNewsFragment.OnLoadListListener{
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_empty);
+		//App42:
+		asyncService = AsyncApp42ServiceApi.instance(this);
 
 		newsList = new ArrayList<News>();
 		freqAnswerList = new ArrayList<FreqAnswer>();
@@ -67,11 +83,17 @@ LastNewsFragment.OnLoadListListener{
 		
 		//Se carga la lista de noticias
 		try {
-			new LoadNewsParse().execute(""); //El ".get" Hace esperar hasta que el hilo termine.
+			/* App42 */
+			progressDialog = ProgressDialog.show(NewsActivity.this,
+					"Espera un momento", "Olfateando noticias....");
+			asyncService.findDocByColletion(Constants.App42DBName, Constants.TABLE_NOTICIA, 1, this);
+			/************/
 			
-			new LoadFreqAnswerNewsParse().execute(""); 
+			//new LoadNewsParse().execute(""); //El ".get" Hace esperar hasta que el hilo termine.
 			
-			new LoadSponsorParse().execute("");
+			//new LoadFreqAnswerNewsParse().execute(""); 
+			
+			//new LoadSponsorParse().execute("");
 					
 		} catch (Exception e) {
 			showMessage("Ups! Perdimos el rastro de las noticias. Intenta más tarde.");
@@ -116,55 +138,6 @@ LastNewsFragment.OnLoadListListener{
 		public void onTabReselected(Tab tab, FragmentTransaction ft) {
 			// TODO Auto-generated method stub
 			
-		}
-	}
-	
-	private class LoadNewsParse extends AsyncTask<String, Integer, Boolean> {
-		private ProgressDialog progressDialog;
-		@Override
-		protected void onPreExecute() {
-			progressDialog = ProgressDialog.show(NewsActivity.this,
-					"Espera un momento", "Olfateando noticias....");
-		}
-		@Override
-		protected Boolean doInBackground(String... param) {
-			try {
-				ParseQuery<ParseObject> query = ParseQuery.getQuery(Constants.TABLE_NOTICIA);
-				query.selectKeys(Arrays.asList(Constants.TITULO_NOTICIA, Constants.CONTENIDO_NOTICIA,Constants.IMAGEN_NOTICIA));// selecciona las columnas a presentar
-				List<ParseObject> results = query.find();
-				
-				for (ParseObject newsParse : results) {
-					final String sIdNews = newsParse.getObjectId();
-					final String sTitle = newsParse.getString(Constants.TITULO_NOTICIA);
-					final String sContent = newsParse.getString(Constants.CONTENIDO_NOTICIA);
-					final Date dCreationDate = newsParse.getCreatedAt();
-					
-					ParseFile imageFile = newsParse.getParseFile(Constants.IMAGEN_NOTICIA);
-					
-					SimpleDateFormat dt = new SimpleDateFormat(
-							"dd/MM/yyyy hh:mm aaa");
-					String date = dt.format(dCreationDate);
-
-					News newNews = new News(sIdNews, sTitle, sContent, date, imageFile.getData(), dCreationDate);
-					newsList.add(newNews);
-				}				
-			} catch (ParseException e) {
-				showMessage(e.getMessage());
-				e.printStackTrace();
-			}
-			return true;
-		}
-
-		@Override
-		protected void onPostExecute(Boolean result) {
-			if (result) {
-				progressDialog.dismiss();
-				getSupportActionBar().setSelectedNavigationItem(0);
-				LastNewsFragment frag = new LastNewsFragment();
-	            FragmentManager fm = getSupportFragmentManager();
-	            fm.beginTransaction().replace(android.R.id.content, frag, TAG_NEWS).commit();
-	            fm.popBackStackImmediate();
-			}
 		}
 	}
 	
@@ -315,6 +288,78 @@ LastNewsFragment.OnLoadListListener{
 	@Override
 	public List<Sponsor> loadSponsorList() {
 		return sponsorList;
+	}
+
+	@Override
+	public void onDocumentInserted(Storage response) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onUpdateDocSuccess(Storage response) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onFindDocSuccess(Storage response, int type) {
+		progressDialog.dismiss();
+		switch (type) {
+		case 1://Noticias
+			decodeNewsJson(response);			
+			break;
+
+		default:
+			break;
+		}
+			
+	}
+
+	@Override
+	public void onInsertionFailed(App42Exception ex) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onFindDocFailed(App42Exception ex) {
+		showMessage("Ups! Perdimos el rastro de la información. Intenta más tarde.");
+	}
+
+	@Override
+	public void onUpdateDocFailed(App42Exception ex) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	/* Método para decodificar el json de noticias */
+	private void decodeNewsJson(Storage response){
+		ArrayList<Storage.JSONDocument> jsonDocList = response.getJsonDocList();
+		String sIdNews = "", sTitle = "", dCreationDate = "", sContent = "", date = "";
+		SimpleDateFormat dt = new SimpleDateFormat("dd/MM/yyyy hh:mm aaa");
+		
+		for(int i=0; i < jsonDocList.size(); i ++){
+			sIdNews = jsonDocList.get(i).getDocId();
+			dCreationDate = jsonDocList.get(i).getCreatedAt();
+			//date = dt.format(dCreationDate);
+			
+			JSONObject jsonObject;
+			try {
+				jsonObject = new JSONObject(jsonDocList.get(i).getJsonDoc());
+				sTitle = jsonObject.getString(Constants.TITULO_NOTICIA);
+				sContent = jsonObject.getString(Constants.CONTENIDO_NOTICIA);
+				News newNews = new News(sIdNews, sTitle, sContent, dCreationDate, null, null);
+				newsList.add(newNews);
+			} catch (JSONException e) {
+				e.printStackTrace();
+			}
+		}
+		getSupportActionBar().setSelectedNavigationItem(0);
+        LastNewsFragment frag = new LastNewsFragment();
+        FragmentManager fm = getSupportFragmentManager();
+        fm.beginTransaction().replace(android.R.id.content, frag, TAG_NEWS).commit();
+        fm.popBackStackImmediate();
 	}
 	
 }
